@@ -1,0 +1,557 @@
+<title>Mercado Karimu</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#EEF1EC; --surface:#FFFFFF; --surface-2:#E3E8E0; --line:#D7DCD2;
+    --ink:#172420; --ink-soft:#56655D; --ink-faint:#8A978F;
+    --accent:#2F6F6B; --accent-ink:#0E3634; --accent-soft:#DCEAE8;
+    --good:#0ca30c; --warning:#b8791a; --critical:#d03b3b;
+    --seq-1:#9ec5f4; --seq-2:#6da7ec; --seq-3:#2a78d6; --seq-4:#184f95;
+    --shadow: 0 1px 2px rgba(23,36,32,.06), 0 10px 28px -10px rgba(23,36,32,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#101A17; --surface:#16231F; --surface-2:#1C2B26; --line:#28392F;
+      --ink:#E7ECE7; --ink-soft:#A3B2AA; --ink-faint:#6C7C74;
+      --accent:#6BB4AB; --accent-ink:#D9F0EC; --accent-soft:#1E3734;
+      --good:#2fbf4f; --warning:#e0a429; --critical:#e8645f;
+      --seq-1:#9ec5f4; --seq-2:#6da7ec; --seq-3:#3987e5; --seq-4:#2a78d6;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 14px 34px -12px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#101A17; --surface:#16231F; --surface-2:#1C2B26; --line:#28392F;
+    --ink:#E7ECE7; --ink-soft:#A3B2AA; --ink-faint:#6C7C74;
+    --accent:#6BB4AB; --accent-ink:#D9F0EC; --accent-soft:#1E3734;
+    --good:#2fbf4f; --warning:#e0a429; --critical:#e8645f;
+    --seq-1:#9ec5f4; --seq-2:#6da7ec; --seq-3:#3987e5; --seq-4:#2a78d6;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 14px 34px -12px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"IBM Plex Sans", system-ui, sans-serif;
+    font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:760px; margin:0 auto; padding:56px 24px 100px;}
+  .wide{max-width:920px;}
+
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--accent); font-weight:600; margin:0 0 16px;
+  }
+  h1{
+    font-family:"Newsreader",Georgia,serif; font-weight:600; font-style:italic;
+    font-size:clamp(34px,5vw,54px); line-height:1.06; margin:0 0 18px; text-wrap:balance; letter-spacing:-.01em;
+  }
+  .lede{font-size:18px; color:var(--ink-soft); max-width:58ch; margin:0 0 8px;}
+  .lede b{color:var(--ink); font-weight:600;}
+
+  .hero-stat{
+    margin:44px 0 48px; padding:32px 0 0; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:36px; align-items:flex-end;
+  }
+  .hero-num{font-family:"Newsreader",serif; font-weight:600; font-size:clamp(48px,9vw,86px); line-height:1; color:var(--accent-ink); letter-spacing:-.02em;}
+  .hero-cap{font-size:15px; color:var(--ink-soft); max-width:30ch; padding-bottom:6px;}
+  .mini-stats{display:flex; gap:28px; flex-wrap:wrap; margin-top:4px;}
+  .mini-stat b{font-family:"IBM Plex Mono",monospace; font-size:17px; color:var(--ink); display:block;}
+  .mini-stat span{font-size:12.5px; color:var(--ink-faint);}
+
+  section{margin:64px 0;}
+  .sec-num{
+    font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink-faint); letter-spacing:.08em;
+    margin-bottom:6px;
+  }
+  h2{
+    font-family:"Newsreader",serif; font-weight:600; font-size:28px; margin:0 0 16px; text-wrap:balance;
+  }
+  p{margin:0 0 16px; max-width:68ch;}
+  .callout{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:20px 24px;
+    box-shadow:var(--shadow); margin:24px 0;
+  }
+  .callout b.lead{color:var(--accent-ink); font-weight:600;}
+
+  /* Ward anchor card */
+  .anchor{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);
+    border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:20px 0;
+  }
+  .anchor div{background:var(--surface); padding:16px 18px;}
+  .anchor .name{font-weight:600; font-size:14.5px;}
+  .anchor .pop{font-family:"IBM Plex Mono",monospace; font-size:19px; color:var(--accent-ink); margin-top:4px;}
+  .anchor .loc{font-size:12px; color:var(--ink-faint); margin-top:2px;}
+
+  /* Funnel chart */
+  .funnel{margin:28px 0;}
+  .funnel-row{display:flex; align-items:center; gap:16px; margin-bottom:14px;}
+  .funnel-label{width:150px; font-size:13.5px; color:var(--ink-soft); flex:none; text-align:right;}
+  .funnel-track{flex:1; background:var(--surface-2); border-radius:4px; height:34px; position:relative;}
+  .funnel-fill{
+    height:100%; border-radius:4px; display:flex; align-items:center; padding:0 12px;
+    font-family:"IBM Plex Mono",monospace; font-size:13px; color:#fff; font-weight:600;
+    transition:width .3s;
+  }
+  .funnel-note{width:230px; font-size:12.5px; color:var(--ink-faint); flex:none;}
+
+  /* nested population bars */
+  .nested{margin:24px 0;}
+  .nested-row{margin-bottom:18px;}
+  .nested-row .lbl{display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:6px;}
+  .nested-row .lbl b{font-family:"IBM Plex Mono",monospace; color:var(--ink);}
+  .nested-track{background:var(--surface-2); border-radius:4px; height:28px; overflow:hidden;}
+  .nested-fill{height:100%; border-radius:4px;}
+
+  /* composition bar (status colors) */
+  .comp-legend{display:flex; gap:18px; flex-wrap:wrap; font-size:13px; color:var(--ink-soft); margin:14px 0 10px;}
+  .comp-legend .item{display:flex; align-items:center; gap:7px;}
+  .sw{width:11px;height:11px;border-radius:3px;display:inline-block;flex:none;}
+  .sw.good{background:var(--good);} .sw.warning{background:var(--warning);} .sw.critical{background:var(--critical);}
+  .comp-track{display:flex; height:30px; border-radius:5px; overflow:hidden; border:1px solid var(--line);}
+  .comp-seg{display:flex; align-items:center; justify-content:center; font-family:"IBM Plex Mono",monospace; font-size:12px; color:#fff; font-weight:600;}
+
+  /* ranking chart (bars) */
+  .rank-chart{margin:8px 0 28px;}
+  .rank-row{display:grid; grid-template-columns:120px 1fr 90px; align-items:center; gap:10px; margin-bottom:9px;}
+  .rank-name{font-size:13px; color:var(--ink-soft); text-align:right;}
+  .rank-track{background:var(--surface-2); border-radius:3px; height:18px;}
+  .rank-fill{height:100%; border-radius:3px; background:var(--seq-3);}
+  .rank-val{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-faint);}
+
+  table{width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; font-size:13.5px;}
+  thead th{
+    text-align:left; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint);
+    font-weight:600; padding:9px 10px; border-bottom:1px solid var(--line);
+  }
+  th.num, td.num{text-align:right;}
+  td{padding:9px 10px; border-bottom:1px solid var(--line);}
+  tr:last-child td{border-bottom:none;}
+  td.mono{font-family:"IBM Plex Mono",monospace;}
+  td.strong{font-weight:600; color:var(--accent-ink);}
+  .confdot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .confdot.good{background:var(--good);} .confdot.warning{background:var(--warning);}
+  .confdot.critical{background:var(--critical);} .confdot.none{background:var(--ink-faint);}
+  .confcell{text-align:center;}
+  .tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:10px; background:var(--surface);}
+  .tablewrap table{min-width:560px;}
+  .table-cap{font-size:12px; color:var(--ink-faint); margin-top:8px;}
+
+  ul.method{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px;}
+  ul.method li{padding-left:22px; position:relative; font-size:14.5px; color:var(--ink-soft);}
+  ul.method li::before{content:"—"; position:absolute; left:0; color:var(--accent);}
+  ul.method b{color:var(--ink); font-weight:600;}
+
+  ol.steps{margin:0; padding:0; list-style:none; counter-reset:step;}
+  ol.steps li{counter-increment:step; padding:14px 0 14px 40px; position:relative; border-bottom:1px solid var(--line);}
+  ol.steps li:last-child{border-bottom:none;}
+  ol.steps li::before{
+    content:counter(step); position:absolute; left:0; top:14px; width:26px; height:26px; border-radius:50%;
+    background:var(--accent-soft); color:var(--accent-ink); font-family:"IBM Plex Mono",monospace; font-size:12px;
+    font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-faint);}
+  footer code{font-family:"IBM Plex Mono",monospace; background:var(--surface); padding:1px 5px; border-radius:4px;}
+  ::selection{background:var(--accent-soft); color:var(--accent-ink);}
+</style>
+
+<div class="page">
+  <p class="eyebrow">Karimu · Estudo de Mercado Endereçável · Outubro 2026</p>
+  <h1>O mercado endereçável da Karimu</h1>
+  <p class="lede">
+    Da Tanzânia para o mundo: dimensionamos quantas comunidades como <b>Arri</b>, <b>Dabil</b> e
+    <b>Ayalagaya</b> — onde a Karimu já atua — existem nos países mais pobres e seguros do planeta.
+  </p>
+
+  <div class="hero-stat">
+    <div>
+      <div class="hero-num">~111M</div>
+      <div class="hero-cap">pessoas em pobreza rural, em 22 países — o núcleo do mercado endereçável da Karimu</div>
+    </div>
+    <div class="mini-stats">
+      <div class="mini-stat"><b>338M</b><span>população total</span></div>
+      <div class="mini-stat"><b>~20.141</b><span>comunidades estimadas</span></div>
+      <div class="mini-stat"><b>22</b><span>países</span></div>
+    </div>
+  </div>
+
+  <section>
+    <p class="sec-num">01</p>
+    <h2>De onde viemos: 3 comunidades, ~47 mil pessoas</h2>
+    <p>
+      A Karimu atua desde 2008 em três <i>wards</i> (a menor unidade de governo local da Tanzânia) do
+      distrito de Babati, região de Manyara: <b>Arri</b>, <b>Dabil</b> e <b>Ayalagaya</b>. Juntas, somam
+      cerca de <b>47.360 habitantes</b> (censo 2022) — esse é o tamanho de comunidade onde o modelo da
+      Karimu já funciona na prática: pequena o bastante para intervenção direta (escola, posto de saúde,
+      grupo de poupança), grande o bastante para ter dado público e liderança local própria.
+    </p>
+    <div class="anchor">
+      <div><div class="name">Arri</div><div class="pop">16.114</div><div class="loc">Babati, Manyara</div></div>
+      <div><div class="name">Dabil</div><div class="pop">19.311</div><div class="loc">Babati, Manyara</div></div>
+      <div><div class="name">Ayalagaya</div><div class="pop">11.935</div><div class="loc">Babati, Manyara</div></div>
+    </div>
+    <p>
+      Este estudo usa essa faixa de tamanho (~5 mil a 30 mil habitantes) como a definição de
+      <b>unidade-alvo</b> — a unidade de medida com que dimensionamos o mercado em todos os 22 países,
+      em vez de usar fronteiras administrativas que variam de nome e tamanho de país para país.
+    </p>
+  </section>
+
+  <section>
+    <p class="sec-num">02</p>
+    <h2>O funil: de 195 países a 22</h2>
+    <p>Dois filtros, aplicados sobre todos os 195 países/territórios do mundo:</p>
+    <div class="funnel">
+      <div class="funnel-row">
+        <div class="funnel-label">Mundo</div>
+        <div class="funnel-track"><div class="funnel-fill" style="width:100%;background:var(--seq-1);color:#0b2338">195 países</div></div>
+        <div class="funnel-note">universo de partida</div>
+      </div>
+      <div class="funnel-row">
+        <div class="funnel-label">Países pobres</div>
+        <div class="funnel-track"><div class="funnel-fill" style="width:22.6%;background:var(--seq-3)">44</div></div>
+        <div class="funnel-note">lista UN LDC (Least Developed Countries), dez/2024 — critério multidimensional da ONU, não um corte nosso</div>
+      </div>
+      <div class="funnel-row">
+        <div class="funnel-label">+ sem guerra</div>
+        <div class="funnel-track"><div class="funnel-fill" style="width:11.3%;background:var(--seq-4)">22</div></div>
+        <div class="funnel-note">remove 22 países em conflito armado ativo — exatamente metade da lista LDC</div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-faint)">
+      Descartamos usar o índice de pobreza do Grameen (PPI) como critério de país: é uma ferramenta de
+      nível domiciliar, aplicada pela própria organização no campo — não existe uma versão "por país" dela.
+    </p>
+  </section>
+
+  <section>
+    <p class="sec-num">03</p>
+    <h2>O tamanho do mercado</h2>
+    <p>
+      Nos 22 países restantes, <b>338 milhões de pessoas</b>. Usando a linha internacional de pobreza
+      extrema do Banco Mundial (US$3,00/dia, PPP 2021), <b>151,5 milhões (44,8%)</b> vivem abaixo dela.
+      Como o modelo da Karimu atua em comunidades rurais, a pergunta que importa é: quantos desses pobres
+      vivem no campo? Cruzando a proporção rural de cada país com a disparidade real de pobreza
+      rural-vs-urbana (medida em pesquisas domiciliares nacionais, não uma suposição nossa), chegamos a
+      <b>110,6 milhões (73%)</b>.
+    </p>
+    <div class="nested">
+      <div class="nested-row">
+        <div class="lbl"><span>População total (22 países)</span><b>338M</b></div>
+        <div class="nested-track"><div class="nested-fill" style="width:100%;background:var(--seq-1)"></div></div>
+      </div>
+      <div class="nested-row">
+        <div class="lbl"><span>Abaixo da linha de pobreza (US$3/dia)</span><b>151,5M · 44,8%</b></div>
+        <div class="nested-track"><div class="nested-fill" style="width:44.8%;background:var(--seq-3)"></div></div>
+      </div>
+      <div class="nested-row">
+        <div class="lbl"><span>...dos quais, em zona rural</span><b>110,6M · 32,7%</b></div>
+        <div class="nested-track"><div class="nested-fill" style="width:32.7%;background:var(--seq-4)"></div></div>
+      </div>
+    </div>
+    <div class="callout">
+      <b class="lead">Por que 73%, não os ~60% que uma conta simples daria:</b> uma premissa de taxa de
+      pobreza uniforme entre campo e cidade subestima sistematicamente o rural — em todos os países onde
+      conseguimos dado real (ex.: Zâmbia, pobreza rural 78,8% vs. urbana 31,9%; Madagascar, 79,9% vs.
+      55,5%), a pobreza rural é de 1,4x a 2x maior. Reaplicamos essa disparidade real, medida em pesquisa
+      domiciliar oficial, em 20 dos 21 países com dado de pobreza (Ilhas Salomão ficou na estimativa
+      simples, por falta de fonte confiável).
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-num">04</p>
+    <h2>Em escala operacional: ~20 mil comunidades</h2>
+    <p>
+      Para comparar oportunidade entre países, convertemos população em número de <b>comunidades do
+      tamanho de Arri/Dabil/Ayalagaya</b> (a "unidade-alvo", ~15 mil habitantes em média). Partimos dos
+      <b>1.781 distritos e ilhas</b> já mapeados (com identificador oficial — P-code — do sistema das
+      Nações Unidas/OCHA em 99% dos casos) nos 22 países:
+    </p>
+    <div class="comp-legend">
+      <span class="item"><span class="sw good"></span> Diretas — já no tamanho certo, dado real (524)</span>
+      <span class="item"><span class="sw warning"></span> Modeladas — distrito grande demais, estimativa aritmética (1.180)</span>
+      <span class="item"><span class="sw critical"></span> Sem dado (77)</span>
+    </div>
+    <div class="comp-track">
+      <div class="comp-seg" style="width:29.4%;background:var(--good)">524</div>
+      <div class="comp-seg" style="width:66.3%;background:var(--warning)">1.180</div>
+      <div class="comp-seg" style="width:4.3%;background:var(--critical)">77</div>
+    </div>
+    <p style="margin-top:18px">
+      Resultado: <b>~20.141 comunidades estimadas</b>, cobrindo ~303,8 milhões de pessoas. A maior parte
+      vem de modelagem (população do distrito ÷ 15 mil), não de uma lista nomeada de comunidades reais —
+      é uma régua de tamanho de mercado, não um mapa pronto para apontar onde abrir a próxima unidade.
+      Essa enumeração real (nome, fronteira, censo próprio) já provamos ser viável — fizemos isso para
+      25 wards em Babati/Tanzânia e 10 <i>sucos</i> em Baguia/Timor-Leste — mas só compensa fazer depois
+      que candidatos específicos forem escolhidos.
+    </p>
+  </section>
+
+  <section class="wide">
+    <p class="sec-num">05</p>
+    <h2>Os 15 maiores mercados</h2>
+    <p>Ordenados por volume estimado de pobres rurais — onde o modelo da Karimu mais se aplica.</p>
+    <div class="rank-chart">
+      <div class="rank-row">
+        <div class="rank-name">Tanzânia</div>
+        <div class="rank-track"><div class="rank-fill" style="width:100.0%"></div></div>
+        <div class="rank-val">27.9M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Moçambique</div>
+        <div class="rank-track"><div class="rank-fill" style="width:74.3%"></div></div>
+        <div class="rank-val">20.8M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Madagascar</div>
+        <div class="rank-track"><div class="rank-fill" style="width:60.5%"></div></div>
+        <div class="rank-val">16.9M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Malawi</div>
+        <div class="rank-track"><div class="rank-fill" style="width:55.9%"></div></div>
+        <div class="rank-val">15.6M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Zâmbia</div>
+        <div class="rank-track"><div class="rank-fill" style="width:41.9%"></div></div>
+        <div class="rank-val">11.7M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Angola</div>
+        <div class="rank-track"><div class="rank-fill" style="width:23.7%"></div></div>
+        <div class="rank-val">6.6M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Serra Leoa</div>
+        <div class="rank-track"><div class="rank-fill" style="width:9.4%"></div></div>
+        <div class="rank-val">2.6M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Senegal</div>
+        <div class="rank-track"><div class="rank-fill" style="width:8.2%"></div></div>
+        <div class="rank-val">2.3M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Guiné</div>
+        <div class="rank-track"><div class="rank-fill" style="width:5.0%"></div></div>
+        <div class="rank-val">1.4M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Libéria</div>
+        <div class="rank-track"><div class="rank-fill" style="width:4.4%"></div></div>
+        <div class="rank-val">1.2M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Guiné-Bissau</div>
+        <div class="rank-track"><div class="rank-fill" style="width:2.7%"></div></div>
+        <div class="rank-val">763k</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Lesoto</div>
+        <div class="rank-track"><div class="rank-fill" style="width:2.6%"></div></div>
+        <div class="rank-val">718k</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Timor-Leste</div>
+        <div class="rank-track"><div class="rank-fill" style="width:1.9%"></div></div>
+        <div class="rank-val">536k</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Laos</div>
+        <div class="rank-track"><div class="rank-fill" style="width:1.7%"></div></div>
+        <div class="rank-val">466k</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Gâmbia</div>
+        <div class="rank-track"><div class="rank-fill" style="width:1.2%"></div></div>
+        <div class="rank-val">339k</div>
+      </div>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr>
+          <th>País</th><th class="num">População</th><th class="num">% pobreza</th>
+          <th class="num">Pobres (est.)</th><th class="num">...rural (ajust.)</th>
+          <th class="num">Comunidades (est.)</th><th>Confiança¹</th>
+        </tr></thead>
+        <tbody>
+<tr>
+      <td>Tanzânia</td>
+      <td class="num mono">70.545.865</td>
+      <td class="num mono">51.3%</td>
+      <td class="num mono">36.190.029</td>
+      <td class="num mono strong">27.941.750</td>
+      <td class="num mono">3.904</td>
+      <td class="confcell"><span class="confdot good" title="Confiança alta"></span></td>
+    </tr>
+<tr>
+      <td>Moçambique</td>
+      <td class="num mono">35.631.653</td>
+      <td class="num mono">81.4%</td>
+      <td class="num mono">29.004.166</td>
+      <td class="num mono strong">20.751.510</td>
+      <td class="num mono">2.339</td>
+      <td class="confcell"><span class="confdot good" title="Confiança alta"></span></td>
+    </tr>
+<tr>
+      <td>Madagascar</td>
+      <td class="num mono">32.740.678</td>
+      <td class="num mono">69.2%</td>
+      <td class="num mono">22.656.549</td>
+      <td class="num mono strong">16.900.553</td>
+      <td class="num mono">1.779</td>
+      <td class="confcell"><span class="confdot good" title="Confiança alta"></span></td>
+    </tr>
+<tr>
+      <td>Malawi</td>
+      <td class="num mono">22.216.120</td>
+      <td class="num mono">75.4%</td>
+      <td class="num mono">16.750.954</td>
+      <td class="num mono strong">15.619.256</td>
+      <td class="num mono">1.321</td>
+      <td class="confcell"><span class="confdot good" title="Confiança alta"></span></td>
+    </tr>
+<tr>
+      <td>Zâmbia</td>
+      <td class="num mono">21.913.874</td>
+      <td class="num mono">71.7%</td>
+      <td class="num mono">15.712.248</td>
+      <td class="num mono strong">11.695.334</td>
+      <td class="num mono">1.303</td>
+      <td class="confcell"><span class="confdot good" title="Confiança alta"></span></td>
+    </tr>
+<tr>
+      <td>Angola</td>
+      <td class="num mono">39.040.039</td>
+      <td class="num mono">39.3%</td>
+      <td class="num mono">15.342.735</td>
+      <td class="num mono strong">6.612.090</td>
+      <td class="num mono">2.444</td>
+      <td class="confcell"><span class="confdot warning" title="Confiança média"></span></td>
+    </tr>
+<tr>
+      <td>Serra Leoa</td>
+      <td class="num mono">8.819.794</td>
+      <td class="num mono">41.5%</td>
+      <td class="num mono">3.660.215</td>
+      <td class="num mono strong">2.615.316</td>
+      <td class="num mono">504</td>
+      <td class="confcell"><span class="confdot good" title="Confiança alta"></span></td>
+    </tr>
+<tr>
+      <td>Senegal</td>
+      <td class="num mono">18.931.966</td>
+      <td class="num mono">17.9%</td>
+      <td class="num mono">3.388.822</td>
+      <td class="num mono strong">2.299.514</td>
+      <td class="num mono">1.207</td>
+      <td class="confcell"><span class="confdot good" title="Confiança alta"></span></td>
+    </tr>
+<tr>
+      <td>Guiné</td>
+      <td class="num mono">15.099.727</td>
+      <td class="num mono">11.7%</td>
+      <td class="num mono">1.766.668</td>
+      <td class="num mono strong">1.409.817</td>
+      <td class="num mono">932</td>
+      <td class="confcell"><span class="confdot good" title="Confiança alta"></span></td>
+    </tr>
+<tr>
+      <td>Libéria</td>
+      <td class="num mono">5.731.206</td>
+      <td class="num mono">33.6%</td>
+      <td class="num mono">1.925.685</td>
+      <td class="num mono strong">1.232.670</td>
+      <td class="num mono">305</td>
+      <td class="confcell"><span class="confdot good" title="Confiança alta"></span></td>
+    </tr>
+<tr>
+      <td>Guiné-Bissau</td>
+      <td class="num mono">2.249.515</td>
+      <td class="num mono">39.9%</td>
+      <td class="num mono">897.556</td>
+      <td class="num mono strong">762.596</td>
+      <td class="num mono">91</td>
+      <td class="confcell"><span class="confdot critical" title="Baixa / inconsistente"></span></td>
+    </tr>
+<tr>
+      <td>Lesoto</td>
+      <td class="num mono">2.363.325</td>
+      <td class="num mono">41.9%</td>
+      <td class="num mono">990.233</td>
+      <td class="num mono strong">717.808</td>
+      <td class="num mono">36</td>
+      <td class="confcell"><span class="confdot good" title="Confiança alta"></span></td>
+    </tr>
+<tr>
+      <td>Timor-Leste</td>
+      <td class="num mono">1.418.517</td>
+      <td class="num mono">44%</td>
+      <td class="num mono">624.147</td>
+      <td class="num mono strong">536.405</td>
+      <td class="num mono">90</td>
+      <td class="confcell"><span class="confdot warning" title="Confiança média"></span></td>
+    </tr>
+<tr>
+      <td>Laos</td>
+      <td class="num mono">7.873.046</td>
+      <td class="num mono">7.1%</td>
+      <td class="num mono">558.986</td>
+      <td class="num mono strong">466.389</td>
+      <td class="num mono">456</td>
+      <td class="confcell"><span class="confdot warning" title="Confiança média"></span></td>
+    </tr>
+<tr>
+      <td>Gâmbia</td>
+      <td class="num mono">2.822.093</td>
+      <td class="num mono">22%</td>
+      <td class="num mono">620.860</td>
+      <td class="num mono strong">338.726</td>
+      <td class="num mono">89</td>
+      <td class="confcell"><span class="confdot good" title="Confiança alta"></span></td>
+    </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-cap">¹ confiança do ajuste rural/urbano: <span class="confdot good" style="vertical-align:-1px"></span> alta (pesquisa oficial) · <span class="confdot warning" style="vertical-align:-1px"></span> média/aproximada · <span class="confdot critical" style="vertical-align:-1px"></span> baixa ou sem dado</p>
+  </section>
+
+  <section>
+    <p class="sec-num">06</p>
+    <h2>Como ler estes números</h2>
+    <p>Rigor explícito sobre o que é dado primário e o que é estimativa — para que decisões de alocação de capital não superinterpretem precisão que não existe.</p>
+    <ul class="method">
+      <li><b>"País pobre"</b> = lista UN LDC da ONU (dez/2024, critério multidimensional: renda + saúde/educação + vulnerabilidade), não um corte percentual escolhido por nós.</li>
+      <li><b>Linha de pobreza internacional mudou</b> de US$2,15/dia (PPP 2017) para US$3,00/dia (PPP 2021) — reflete uma revisão real do Banco Mundial em 2025, não um erro de cálculo.</li>
+      <li><b>Lista de países em guerra</b> vem da Wikipedia e mistura território de conflito principal com países afetados por transbordamento — pode estar superestimando quantos países foram excluídos.</li>
+      <li><b>Disparidade rural/urbana</b> ajustada com pesquisa domiciliar oficial em 20 de 21 países com dado de pobreza; 15 com fonte lida diretamente, 5 com confiança média, 1 (Guiné-Bissau) com inconsistência interna não resolvida, 1 (Ilhas Salomão) sem dado.</li>
+      <li><b>Identificador de comunidade</b> (P-code) é o padrão oficial da ONU/OCHA, reaproveitado — não inventamos um sistema novo. Onde não existe ainda (redistritamento recente), usamos um ID provisório rastreável.</li>
+      <li><b>Tamanho médio de comunidade</b> (15 mil habitantes) foi calibrado com dado real de 1 só país (Tanzânia) — a maioria das ~20.141 comunidades é estimativa aritmética sobre esse pressuposto, não uma lista enumerada.</li>
+      <li><b>Validade temporal</b>: Bangladesh, Laos e Nepal graduam da lista LDC em 24/nov/2026 — este shortlist de 22 países precisa de revisão logo após essa data.</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="sec-num">07</p>
+    <h2>Próximos passos recomendados</h2>
+    <ol class="steps">
+      <li>Fechar o gap de Ilhas Salomão (disparidade rural/urbana) e revisar Guiné-Bissau (inconsistência de fonte).</li>
+      <li>Selecionar países/distritos candidatos à expansão a partir deste ranking, usando os critérios estratégicos da Karimu (não só volume populacional).</li>
+      <li>Para os candidatos escolhidos, rodar a enumeração exaustiva de comunidades reais (nome, fronteira, censo próprio) — método já validado em Babati (Tanzânia) e Baguia (Timor-Leste).</li>
+      <li>Revisar o shortlist de 22 países após 24/nov/2026 (graduação de Bangladesh, Laos e Nepal da lista LDC).</li>
+    </ol>
+  </section>
+
+  <footer>
+    Preparado a partir de dados do UN Committee for Development Policy (lista LDC), World Bank
+    (população, pobreza internacional, população rural), HDX/OCHA COD-AB &amp; COD-PS (fronteiras e
+    P-codes administrativos), e pesquisas domiciliares nacionais oficiais (HBS, IOF, EHCVM, IHS, LCMS,
+    NLSS, EDAM-IS, conforme o país) — fontes completas e notas de confiança por país na documentação
+    técnica do projeto (<code>projects/karimu/research/</code>). Dados coletados entre 2026-10-01 e
+    2026-10-03.
+  </footer>
+</div>

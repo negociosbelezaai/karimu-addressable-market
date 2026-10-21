@@ -1,0 +1,464 @@
+<title>Mercado Karimu · v2</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#EEF1EC; --surface:#FFFFFF; --surface-2:#E3E8E0; --line:#D7DCD2;
+    --ink:#172420; --ink-soft:#56655D; --ink-faint:#8A978F;
+    --accent:#2F6F6B; --accent-ink:#0E3634; --accent-soft:#DCEAE8;
+    --good:#0ca30c; --warning:#b8791a; --critical:#d03b3b;
+    --seq-1:#9ec5f4; --seq-2:#6da7ec; --seq-3:#2a78d6; --seq-4:#184f95;
+    --shadow: 0 1px 2px rgba(23,36,32,.06), 0 10px 28px -10px rgba(23,36,32,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#101A17; --surface:#16231F; --surface-2:#1C2B26; --line:#28392F;
+      --ink:#E7ECE7; --ink-soft:#A3B2AA; --ink-faint:#6C7C74;
+      --accent:#6BB4AB; --accent-ink:#D9F0EC; --accent-soft:#1E3734;
+      --good:#2fbf4f; --warning:#e0a429; --critical:#e8645f;
+      --seq-1:#9ec5f4; --seq-2:#6da7ec; --seq-3:#3987e5; --seq-4:#2a78d6;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 14px 34px -12px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#101A17; --surface:#16231F; --surface-2:#1C2B26; --line:#28392F;
+    --ink:#E7ECE7; --ink-soft:#A3B2AA; --ink-faint:#6C7C74;
+    --accent:#6BB4AB; --accent-ink:#D9F0EC; --accent-soft:#1E3734;
+    --good:#2fbf4f; --warning:#e0a429; --critical:#e8645f;
+    --seq-1:#9ec5f4; --seq-2:#6da7ec; --seq-3:#3987e5; --seq-4:#2a78d6;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 14px 34px -12px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"IBM Plex Sans", system-ui, sans-serif;
+    font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:760px; margin:0 auto; padding:56px 24px 100px;}
+  .wide{max-width:920px;}
+
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--accent); font-weight:600; margin:0 0 16px;
+  }
+  h1{
+    font-family:"Newsreader",Georgia,serif; font-weight:600; font-style:italic;
+    font-size:clamp(34px,5vw,54px); line-height:1.06; margin:0 0 18px; text-wrap:balance; letter-spacing:-.01em;
+  }
+  .lede{font-size:18px; color:var(--ink-soft); max-width:58ch; margin:0 0 8px;}
+  .lede b{color:var(--ink); font-weight:600;}
+
+  .hero-stat{
+    margin:44px 0 48px; padding:32px 0 0; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:36px; align-items:flex-end;
+  }
+  .hero-num{font-family:"Newsreader",serif; font-weight:600; font-size:clamp(48px,9vw,86px); line-height:1; color:var(--accent-ink); letter-spacing:-.02em;}
+  .hero-cap{font-size:15px; color:var(--ink-soft); max-width:30ch; padding-bottom:6px;}
+  .mini-stats{display:flex; gap:28px; flex-wrap:wrap; margin-top:4px;}
+  .mini-stat b{font-family:"IBM Plex Mono",monospace; font-size:17px; color:var(--ink); display:block;}
+  .mini-stat span{font-size:12.5px; color:var(--ink-faint);}
+
+  section{margin:64px 0;}
+  .sec-num{
+    font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink-faint); letter-spacing:.08em;
+    margin-bottom:6px;
+  }
+  h2{
+    font-family:"Newsreader",serif; font-weight:600; font-size:28px; margin:0 0 16px; text-wrap:balance;
+  }
+  p{margin:0 0 16px; max-width:68ch;}
+  .callout{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:20px 24px;
+    box-shadow:var(--shadow); margin:24px 0;
+  }
+  .callout b.lead{color:var(--accent-ink); font-weight:600;}
+
+  /* Ward anchor card */
+  .anchor{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);
+    border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:20px 0;
+  }
+  .anchor > div{background:var(--surface); padding:16px 18px;}
+  .anchor .name{font-weight:600; font-size:15px;}
+  .anchor .pop{font-family:"IBM Plex Mono",monospace; font-size:20px; color:var(--accent-ink); margin:4px 0;}
+  .anchor .loc{font-size:12.5px; color:var(--ink-faint);}
+
+  /* Funnel */
+  .funnel{display:flex; flex-direction:column; gap:10px; margin:24px 0;}
+  .funnel-row{display:grid; grid-template-columns:130px 1fr 1fr; gap:12px; align-items:center;}
+  .funnel-label{font-size:13px; font-weight:600; color:var(--ink-soft); text-align:right;}
+  .funnel-track{height:32px; background:var(--surface-2); border-radius:4px; overflow:hidden;}
+  .funnel-fill{height:100%; display:flex; align-items:center; padding:0 10px; font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:600; color:white; white-space:nowrap; border-radius:4px;}
+  .funnel-note{font-size:12.5px; color:var(--ink-faint); line-height:1.4;}
+
+  /* Nested bar */
+  .nested{display:flex; flex-direction:column; gap:8px; margin:24px 0;}
+  .nested-row{display:grid; grid-template-columns:1fr 180px; gap:12px; align-items:center;}
+  .nested-track{height:24px; background:var(--surface-2); border-radius:3px; overflow:hidden;}
+  .nested-fill{height:100%; border-radius:3px;}
+  .lbl{display:flex; justify-content:space-between; font-size:13.5px;}
+  .lbl span{color:var(--ink-soft);}
+  .lbl b{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--ink);}
+
+  /* Composition bar */
+  .comp-legend{display:flex; flex-wrap:wrap; gap:12px 20px; font-size:13px; margin-bottom:10px;}
+  .comp-legend .item{display:flex; align-items:center; gap:6px; color:var(--ink-soft);}
+  .sw{display:inline-block; width:10px; height:10px; border-radius:2px;}
+  .sw.good{background:var(--good);}
+  .sw.warning{background:var(--warning);}
+  .sw.critical{background:var(--critical);}
+  .comp-track{display:flex; height:32px; border-radius:4px; overflow:hidden; gap:1px;}
+  .comp-seg{display:flex; align-items:center; justify-content:center; font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:600; color:white;}
+
+  /* Ranking chart */
+  .rank-chart{display:flex; flex-direction:column; gap:8px; margin:20px 0;}
+  .rank-row{display:grid; grid-template-columns:160px 1fr 70px; gap:10px; align-items:center;}
+  .rank-name{font-size:13.5px; font-weight:500; text-align:right; color:var(--ink-soft);}
+  .rank-name.hl{color:var(--accent-ink); font-weight:700;}
+  .rank-track{height:22px; background:var(--surface-2); border-radius:3px; overflow:hidden;}
+  .rank-fill{height:100%; background:var(--accent); border-radius:3px; opacity:.75;}
+  .rank-fill.hl{opacity:1; background:var(--accent-ink);}
+  .rank-val{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--ink); font-weight:600;}
+
+  /* Table */
+  .tablewrap{overflow-x:auto; margin:20px 0;}
+  table{border-collapse:collapse; width:100%; font-size:13.5px;}
+  th{
+    background:var(--surface-2); padding:8px 12px; text-align:left; font-weight:600; font-size:12.5px;
+    color:var(--ink-soft); border-bottom:1px solid var(--line); white-space:nowrap;
+  }
+  td{padding:7px 12px; border-bottom:1px solid var(--line);}
+  .num{text-align:right;}
+  .mono{font-family:"IBM Plex Mono",monospace;}
+  .strong{font-weight:600;}
+  .table-cap{font-size:12px; color:var(--ink-faint); margin-top:8px;}
+  .confcell{text-align:center;}
+  .confdot{display:inline-block; width:10px; height:10px; border-radius:50%;}
+  .confdot.good{background:var(--good);}
+  .confdot.warning{background:var(--warning);}
+  .confdot.critical{background:var(--critical);}
+  tr.hl-row td{background:var(--accent-soft);}
+
+  /* Method list */
+  ul.method, ol.steps{padding-left:20px;}
+  ul.method li, ol.steps li{margin-bottom:10px; font-size:14.5px; color:var(--ink-soft);}
+  ul.method li b, ol.steps li b{color:var(--ink);}
+
+  /* Version badge */
+  .vbadge{
+    display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600;
+    padding:2px 8px; border-radius:12px; background:var(--accent-soft); color:var(--accent-ink);
+    vertical-align:middle; margin-left:8px;
+  }
+
+  footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-faint);}
+  footer code{font-family:"IBM Plex Mono",monospace; background:var(--surface); padding:1px 5px; border-radius:4px;}
+  ::selection{background:var(--accent-soft); color:var(--accent-ink);}
+</style>
+
+<div class="page">
+  <p class="eyebrow">Karimu · Estudo de Mercado Endereçável · Outubro 2026</p>
+  <h1>O mercado endereçável da Karimu</h1>
+  <p class="lede">
+    Da Tanzânia para o mundo: dimensionamos quantas comunidades como <b>Arri</b>, <b>Dabil</b> e
+    <b>Ayalagaya</b> — onde a Karimu já atua — existem em países com alta pobreza rural e ambiente
+    institucional que permite operar.
+  </p>
+
+  <div class="hero-stat">
+    <div>
+      <div class="hero-num">~314M</div>
+      <div class="hero-cap">pessoas em pobreza rural, em 43 países — o mercado endereçável da Karimu</div>
+    </div>
+    <div class="mini-stats">
+      <div class="mini-stat"><b>43</b><span>países</span></div>
+      <div class="mini-stat"><b>16.383</b><span>distritos mapeados</span></div>
+      <div class="mini-stat"><b>~223 mil</b><span>comunidades estimadas</span></div>
+    </div>
+  </div>
+
+  <section>
+    <p class="sec-num">01</p>
+    <h2>De onde viemos: 3 comunidades, ~47 mil pessoas</h2>
+    <p>
+      A Karimu atua desde 2008 em três <i>wards</i> (a menor unidade de governo local da Tanzânia) do
+      distrito de Babati, região de Manyara: <b>Arri</b>, <b>Dabil</b> e <b>Ayalagaya</b>. Juntas, somam
+      cerca de <b>47.360 habitantes</b> (censo 2022) — esse é o tamanho de comunidade onde o modelo da
+      Karimu já funciona na prática: pequena o bastante para intervenção direta (escola, posto de saúde,
+      grupo de poupança), grande o bastante para ter dado público e liderança local própria.
+    </p>
+    <div class="anchor">
+      <div><div class="name">Arri</div><div class="pop">16.114</div><div class="loc">Babati, Manyara</div></div>
+      <div><div class="name">Dabil</div><div class="pop">19.311</div><div class="loc">Babati, Manyara</div></div>
+      <div><div class="name">Ayalagaya</div><div class="pop">11.935</div><div class="loc">Babati, Manyara</div></div>
+    </div>
+    <p>
+      Este estudo usa essa faixa de tamanho (~5 mil a 30 mil habitantes) como a definição de
+      <b>unidade-alvo</b> — a unidade de medida com que dimensionamos o mercado em todos os 43 países,
+      em vez de usar fronteiras administrativas que variam de nome e tamanho de país para país.
+    </p>
+  </section>
+
+  <section>
+    <p class="sec-num">02</p>
+    <h2>O funil: de 195 países a 43</h2>
+    <p>Três critérios aplicados sobre todos os 195 países/territórios do mundo, em sequência:</p>
+    <div class="funnel">
+      <div class="funnel-row">
+        <div class="funnel-label">Mundo</div>
+        <div class="funnel-track"><div class="funnel-fill" style="width:100%;background:var(--seq-1);color:#0b2338">195 países</div></div>
+        <div class="funnel-note">universo de partida</div>
+      </div>
+      <div class="funnel-row">
+        <div class="funnel-label">Pobreza rural</div>
+        <div class="funnel-track"><div class="funnel-fill" style="width:27.2%;background:var(--seq-2)">53</div></div>
+        <div class="funnel-note">países com pobreza rural significativa abaixo de US$3/dia (PPP 2021) — World Bank</div>
+      </div>
+      <div class="funnel-row">
+        <div class="funnel-label">+ sem conflito</div>
+        <div class="funnel-track"><div class="funnel-fill" style="width:23.1%;background:var(--seq-3)">45</div></div>
+        <div class="funnel-note">remove 8 países em conflito armado ativo — World Bank FCS FY2025 + UCDP v26.1</div>
+      </div>
+      <div class="funnel-row">
+        <div class="funnel-label">+ governança</div>
+        <div class="funnel-track"><div class="funnel-fill" style="width:22.1%;background:var(--seq-4)">43</div></div>
+        <div class="funnel-note">remove 2 países com CPI ≥20 pontos abaixo da Tanzânia — Transparency International CPI 2025</div>
+      </div>
+    </div>
+
+    <p style="margin-top:28px;margin-bottom:8px;font-weight:600;font-size:14px;color:var(--ink-soft)">Excluídos por conflito armado ativo</p>
+    <p style="font-size:14px">
+      Oito países com pobreza rural significativa foram removidos por estarem classificados como
+      <i>Fragile and Conflict-affected Situations</i> (World Bank FCS FY2025) ou com conflito armado
+      ativo documentado (UCDP v26.1, limiar ≥25 mortes de combate/ano). Entre os mais relevantes
+      pelo porte do mercado potencial:
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr>
+          <th>País</th><th>Status conflito</th><th>Anos em conflito (2016–2025)</th><th>Fonte</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>RD Congo</td><td>Crônico</td><td class="num mono">10/10</td><td>UCDP v26.1</td></tr>
+          <tr><td>Etiópia</td><td>Crônico</td><td class="num mono">10/10</td><td>UCDP v26.1</td></tr>
+          <tr><td>Moçambique</td><td>Crônico</td><td class="num mono">9/10</td><td>UCDP v26.1</td></tr>
+          <tr><td>Nigéria</td><td>Conflito ativo</td><td class="num mono">—</td><td>WB FCS FY2025</td></tr>
+          <tr><td>Sudão / Sudão do Sul</td><td>Crônico</td><td class="num mono">10/10</td><td>UCDP v26.1</td></tr>
+          <tr><td>Mianmar</td><td>Crônico</td><td class="num mono">10/10</td><td>UCDP v26.1</td></tr>
+          <tr><td>Iêmen</td><td>Crônico</td><td class="num mono">10/10</td><td>UCDP v26.1</td></tr>
+          <tr><td>Haiti</td><td>Frequente</td><td class="num mono">5/10</td><td>UCDP v26.1</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:28px;margin-bottom:8px;font-weight:600;font-size:14px;color:var(--ink-soft)">Excluídos por índice de corrupção (CPI 2025)</p>
+    <p style="font-size:14px">
+      Dois países foram removidos por terem o Índice de Percepção de Corrupção da
+      Transparency International 20 ou mais pontos abaixo da Tanzânia (referência: CPI=40).
+      O critério protege contra risco operacional e de desvio de recursos em campo:
+    </p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr>
+          <th>País</th><th class="num">CPI 2025</th><th class="num">Tanzânia (ref.)</th><th class="num">Gap</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Cambodia</td><td class="num mono">20</td><td class="num mono">40</td><td class="num mono strong">−20</td></tr>
+          <tr><td>Nicaragua</td><td class="num mono">14</td><td class="num mono">40</td><td class="num mono strong">−26</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--ink-faint)">Países com gap entre −1 e −19 permanecem no shortlist. Ex: Uganda (CPI=25, gap=−15), Bangladesh (CPI=24, gap=−16), Pakistan (CPI=28, gap=−12), Kenya (CPI=30, gap=−10).</p>
+  </section>
+
+  <section>
+    <p class="sec-num">03</p>
+    <h2>O tamanho do mercado</h2>
+    <p>
+      Nos 43 países, <b>419,5 milhões de pessoas vivem abaixo da linha internacional de pobreza
+      de US$3,00/dia</b> (PPP 2021, Banco Mundial). Desse total, usando a disparidade real de pobreza
+      rural-vs-urbana medida em pesquisas domiciliares nacionais, <b>313,7 milhões (74,8%) vivem no
+      campo</b> — o núcleo do mercado endereçável da Karimu.
+    </p>
+    <div class="nested">
+      <div class="nested-row">
+        <div class="lbl"><span>Total de pobres (rural + urbano, 43 países)</span><b>419,5M</b></div>
+        <div class="nested-track"><div class="nested-fill" style="width:100%;background:var(--seq-1)"></div></div>
+      </div>
+      <div class="nested-row">
+        <div class="lbl"><span>...dos quais, em zona rural</span><b>313,7M · 74,8%</b></div>
+        <div class="nested-track"><div class="nested-fill" style="width:74.8%;background:var(--seq-4)"></div></div>
+      </div>
+    </div>
+    <div class="callout">
+      <b class="lead">A Índia concentra 35,7% do mercado global:</b> 112 milhões de pobres rurais em um
+      único país. Isso não significa que a Índia seja necessariamente a próxima parada da Karimu, mas
+      dimensiona a escala real do problema global que a organização endereça. Para leitura sem o peso
+      da Índia: os outros 42 países somam <b>201,7M rurais pobres</b> em 15.593 distritos.
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-num">04</p>
+    <h2>Em escala operacional: ~223 mil comunidades</h2>
+    <p>
+      Convertemos os <b>16.383 distritos</b> mapeados em número de comunidades do tamanho de
+      Arri/Dabil/Ayalagaya (~15 mil habitantes, calibração da Tanzânia). Distritos já no tamanho
+      certo são usados diretamente; os maiores são divididos pela média de 15 mil:
+    </p>
+    <div class="comp-legend">
+      <span class="item"><span class="sw good"></span> Diretas — distrito já ≤40k hab, dado real (8.305)</span>
+      <span class="item"><span class="sw warning"></span> Modeladas — distrito >40k hab, estimativa aritmética (8.074)</span>
+      <span class="item"><span class="sw critical"></span> Sem dado (4 corpos d'água, El Salvador)</span>
+    </div>
+    <div class="comp-track">
+      <div class="comp-seg" style="width:50.7%;background:var(--good)">8.305</div>
+      <div class="comp-seg" style="width:49.3%;background:var(--warning)">8.074</div>
+      <div class="comp-seg" style="width:0.1%;background:var(--critical)"></div>
+    </div>
+    <p style="margin-top:18px">
+      Resultado: <b>~223.467 comunidades estimadas</b>, sendo 82.392 só na Índia. Excluindo Índia:
+      <b>141.075 comunidades</b> nos outros 42 países. A maioria é estimativa aritmética sobre um
+      pressuposto calibrado em 1 país (Tanzânia) — é uma régua de tamanho de mercado, não um mapa
+      de endereços.
+    </p>
+  </section>
+
+  <section class="wide">
+    <p class="sec-num">05</p>
+    <h2>Os 15 maiores mercados</h2>
+    <p>Ordenados por volume estimado de pobres rurais — onde o modelo da Karimu mais se aplica.</p>
+    <div class="rank-chart">
+      <div class="rank-row">
+        <div class="rank-name">Índia</div>
+        <div class="rank-track"><div class="rank-fill hl" style="width:100.0%"></div></div>
+        <div class="rank-val">112,0M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name hl">Tanzânia ★</div>
+        <div class="rank-track"><div class="rank-fill hl" style="width:23.7%"></div></div>
+        <div class="rank-val">26,5M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Madagascar</div>
+        <div class="rank-track"><div class="rank-fill" style="width:18.0%"></div></div>
+        <div class="rank-val">20,2M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Uganda</div>
+        <div class="rank-track"><div class="rank-fill" style="width:17.4%"></div></div>
+        <div class="rank-val">19,5M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Paquistão</div>
+        <div class="rank-track"><div class="rank-fill" style="width:16.1%"></div></div>
+        <div class="rank-val">18,0M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Malawi</div>
+        <div class="rank-track"><div class="rank-fill" style="width:12.9%"></div></div>
+        <div class="rank-val">14,5M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Quênia</div>
+        <div class="rank-track"><div class="rank-fill" style="width:12.7%"></div></div>
+        <div class="rank-val">14,2M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Angola</div>
+        <div class="rank-track"><div class="rank-fill" style="width:8.8%"></div></div>
+        <div class="rank-val">9,8M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Zâmbia</div>
+        <div class="rank-track"><div class="rank-fill" style="width:8.6%"></div></div>
+        <div class="rank-val">9,6M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Bangladesh</div>
+        <div class="rank-track"><div class="rank-fill" style="width:8.5%"></div></div>
+        <div class="rank-val">9,5M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Indonésia</div>
+        <div class="rank-track"><div class="rank-fill" style="width:6.1%"></div></div>
+        <div class="rank-val">6,8M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Ruanda</div>
+        <div class="rank-track"><div class="rank-fill" style="width:5.9%"></div></div>
+        <div class="rank-val">6,6M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Benin</div>
+        <div class="rank-track"><div class="rank-fill" style="width:3.8%"></div></div>
+        <div class="rank-val">4,2M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Brasil</div>
+        <div class="rank-track"><div class="rank-fill" style="width:3.7%"></div></div>
+        <div class="rank-val">4,1M</div>
+      </div>
+      <div class="rank-row">
+        <div class="rank-name">Costa do Marfim</div>
+        <div class="rank-track"><div class="rank-fill" style="width:3.6%"></div></div>
+        <div class="rank-val">4,0M</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--ink-faint);margin-top:4px">★ País onde a Karimu já opera</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr>
+          <th>País</th>
+          <th class="num">Pobres rurais (est.)</th>
+          <th class="num">Distritos map.</th>
+          <th class="num">Comunidades (est.)</th>
+          <th>Fonte pobreza</th>
+        </tr></thead>
+        <tbody>
+<tr class="hl-row"><td>Índia</td><td class="num mono strong">112,0M</td><td class="num mono">790</td><td class="num mono">82.392</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+<tr class="hl-row"><td>Tanzânia ★</td><td class="num mono strong">26,5M</td><td class="num mono">169</td><td class="num mono">3.989</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+<tr><td>Madagascar</td><td class="num mono strong">20,2M</td><td class="num mono">119</td><td class="num mono">1.828</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+<tr><td>Uganda</td><td class="num mono strong">19,5M</td><td class="num mono">135</td><td class="num mono">3.146</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+<tr><td>Paquistão</td><td class="num mono strong">18,0M</td><td class="num mono">131</td><td class="num mono">13.915</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+<tr><td>Malawi</td><td class="num mono strong">14,5M</td><td class="num mono">32</td><td class="num mono">1.336</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+<tr><td>Quênia</td><td class="num mono strong">14,2M</td><td class="num mono">290</td><td class="num mono">3.770</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+<tr><td>Angola</td><td class="num mono strong">9,8M</td><td class="num mono">161</td><td class="num mono">2.524</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+<tr><td>Zâmbia</td><td class="num mono strong">9,6M</td><td class="num mono">116</td><td class="num mono">1.361</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+<tr><td>Bangladesh</td><td class="num mono strong">9,5M</td><td class="num mono">64</td><td class="num mono">11.077</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+<tr><td>Indonésia</td><td class="num mono strong">6,8M</td><td class="num mono">514</td><td class="num mono">18.217</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+<tr><td>Ruanda</td><td class="num mono strong">6,6M</td><td class="num mono">30</td><td class="num mono">909</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+<tr><td>Benin</td><td class="num mono strong">4,2M</td><td class="num mono">77</td><td class="num mono">1.019</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+<tr><td>Brasil</td><td class="num mono strong">4,1M</td><td class="num mono">5.570</td><td class="num mono">14.900</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+<tr><td>Costa do Marfim</td><td class="num mono strong">4,0M</td><td class="num mono">108</td><td class="num mono">1.776</td><td>World Bank (US$3/dia, PPP 2021)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-num">06</p>
+    <h2>Como ler estes números</h2>
+    <p>Rigor explícito sobre o que é dado primário e o que é estimativa.</p>
+    <ul class="method">
+      <li><b>Critério de inclusão:</b> pobreza rural abaixo de US$3/dia (PPP 2021) — linha do Banco Mundial para países de renda média-baixa, revisão de junho de 2025. Aplicada a todos os países. Conflito armado verificado pelo World Bank FCS FY2025 e pelo UCDP/PRIO Armed Conflict Dataset v26.1 (Uppsala University), limiar ≥25 mortes de combate/ano. Governança medida pelo CPI 2025 da Transparency International.</li>
+      <li><b>Estimativas de pobreza rural</b> derivadas de dados do World Bank (indicador de pobreza rural, percentual abaixo de US$3/dia por país). Para 12 países africanos da lista (Tanzânia, Malawi, Zâmbia, Angola, Ruanda, Benin, Senegal, Nepal, Serra Leoa, Lesoto, Libéria, Madagascar), a disparidade rural/urbana foi verificada com pesquisa domiciliar oficial (HBS, IOF, EHCVM, IHS, LCMS, NLSS); para os demais países, a estimativa vem diretamente do World Bank com grau de confiança médio.</li>
+      <li><b>Filtro de corrupção (CPI 2025):</b> corte em gap ≥20 pontos vs. Tanzânia (CPI=40). Apenas Cambodia (CPI=20, gap=20) e Nicaragua (CPI=14, gap=26) são excluídos. Todos os outros 43 países ativos têm gap ≤19.</li>
+      <li><b>Tamanho médio de comunidade</b> (15 mil habitantes) foi calibrado com dado real de 1 só país (Tanzânia, 4.102 wards reais enumerados). Não revalidado para os outros 42 países — comunidades em outros contextos podem ser maiores ou menores.</li>
+      <li><b>Identificadores de distrito:</b> 41/43 países com P-codes oficiais ONU/OCHA. India: IDs construídos (IND-{ST}-{SEQ}), sem LGD oficial em bulk. Peru: ubigeo INEI, oficial. Bhutan: ISO 3166-2:BT, oficial.</li>
+      <li><b>Índia distorce o total:</b> 112M (35,7% do TAM) em um único país. O número de comunidades segue a mesma proporção (82.392 de 223.467). Leitura alternativa sem Índia: 201,7M rurais pobres · 141.075 comunidades · 42 países.</li>
+    </ul>
+  </section>
+
+  <footer>
+    Preparado a partir de: World Bank (pobreza rural US$3/dia PPP 2021, revisão jun/2025; população rural);
+    Transparency International CPI 2025; World Bank FCS FY2025 (conflito); UCDP/PRIO Armed Conflict Dataset
+    v26.1 e UCDP Non-State Conflict Dataset v26.1 (Uppsala University, ucdp.uu.se); HDX/OCHA COD-AB &amp;
+    COD-PS (fronteiras e P-codes administrativos); Census of India 2011; INEI Peru Censo Nacional 2017;
+    NSB Bhutan Population &amp; Housing Census 2017; ISO 3166-2 —
+    fontes detalhadas por país na documentação técnica do projeto (<code>karimu/deliverables/</code> e <code>karimu/research/</code>).
+    Dados coletados em outubro de 2026.
+  </footer>
+</div>

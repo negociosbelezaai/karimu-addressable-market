@@ -1,0 +1,43 @@
+country_id_iso3,country_name_pt,country_name_en,cpi_2025_score,cpi_2025_rank_of_182,delta_vs_tanzania,more_corrupt_than_tanzania
+SOM,Somália,Somalia,9.0,181,-31.0,yes
+SSD,Sudão do Sul,South Sudan,9.0,181,-31.0,yes
+ERI,Eritreia,Eritrea,13.0,177,-27.0,yes
+YEM,Iêmen,Yemen,13.0,177,-27.0,yes
+SDN,Sudão,Sudan,14.0,175,-26.0,yes
+AFG,Afeganistão,Afghanistan,16.0,169,-24.0,yes
+HTI,Haiti,Haiti,16.0,169,-24.0,yes
+MMR,Mianmar,Myanmar,16.0,169,-24.0,yes
+BDI,Burundi,Burundi,17.0,167,-23.0,yes
+KHM,Camboja,Cambodia,20.0,163,-20.0,yes
+COM,Comores,Comoros,20.0,163,-20.0,yes
+COD,RD Congo,Democratic Republic of the Congo,20.0,163,-20.0,yes
+GNB,Guiné-Bissau,Guinea Bissau,21.0,161,-19.0,yes
+MOZ,Moçambique,Mozambique,21.0,161,-19.0,yes
+TCD,Chade,Chad,22.0,157,-18.0,yes
+BGD,Bangladesh,Bangladesh,24.0,150,-16.0,yes
+CAF,República Centro-Africana,Central African Republic,24.0,150,-16.0,yes
+MDG,Madagascar,Madagascar,25.0,148,-15.0,yes
+UGA,Uganda,Uganda,25.0,148,-15.0,yes
+GIN,Guiné,Guinea,26.0,142,-14.0,yes
+LBR,Libéria,Liberia,28.0,136,-12.0,yes
+MLI,Mali,Mali,28.0,136,-12.0,yes
+MRT,Mauritânia,Mauritania,30.0,130,-10.0,yes
+DJI,Djibouti,Djibouti,31.0,124,-9.0,yes
+NER,Níger,Niger,31.0,124,-9.0,yes
+AGO,Angola,Angola,32.0,120,-8.0,yes
+TGO,Togo,Togo,32.0,120,-8.0,yes
+LAO,Laos,Laos,34.0,109,-6.0,yes
+MWI,Malawi,Malawi,34.0,109,-6.0,yes
+NPL,Nepal,Nepal,34.0,109,-6.0,yes
+SLE,Serra Leoa,Sierra Leone,34.0,109,-6.0,yes
+GMB,Gâmbia,Gambia,37.0,99,-3.0,yes
+LSO,Lesoto,Lesotho,37.0,99,-3.0,yes
+ZMB,Zâmbia,Zambia,37.0,99,-3.0,yes
+ETH,Etiópia,Ethiopia,38.0,96,-2.0,yes
+BFA,Burkina Faso,Burkina Faso,40.0,84,0.0,no
+TZA,Tanzânia,Tanzania,40.0,84,0.0,no
+SLB,Ilhas Salomão,Solomon Islands,44.0,73,4.0,no
+TLS,Timor-Leste,Timor-Leste,44.0,73,4.0,no
+BEN,Benin,Benin,45.0,70,5.0,no
+SEN,Senegal,Senegal,46.0,65,6.0,no
+RWA,Ruanda,Rwanda,58.0,41,18.0,no

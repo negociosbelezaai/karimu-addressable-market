@@ -25,6 +25,20 @@ All figures in the report trace to these CSVs. Each row carries its own source, 
 Raw download URLs follow the pattern
 `https://raw.githubusercontent.com/negociosbelezaai/karimu-addressable-market/main/data/<file>.csv`.
 
+## Full project archive
+
+Beyond the headline report and its four source CSVs, this repository also publishes the complete
+working archive of the study so the analysis can be audited and reused end to end:
+
+- [`deliverables/`](deliverables/) — every dataset produced across both methodology versions (country,
+  province, district, ward and target-unit maps), the earlier report editions (HTML + PDF), and the
+  data-processing scripts.
+- [`research/`](research/) — the methodology and research notes behind each step: data sources,
+  sub-national unit definition, province/district/ward construction, the rural-poverty disparity
+  analysis, the corruption (CPI) screen and the v2 methodology revision.
+- [`PROJECT-LOG.md`](PROJECT-LOG.md) — the chronological project log, from the first country map to the
+  published report.
+
 ## Sources
 
 World Bank (rural poverty US$3/day PPP 2021, June 2025 revision; rural population); Transparency
