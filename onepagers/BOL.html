@@ -1,0 +1,204 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Karimu · Bolivia — one-pager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#EEF1EC; --surface:#FFFFFF; --surface-2:#E3E8E0; --line:#D7DCD2;
+  --ink:#172420; --ink-soft:#56655D; --ink-faint:#8A978F;
+  --accent:#2F6F6B; --accent-ink:#0E3634; --accent-soft:#DCEAE8;
+  --good:#0ca30c; --warning:#b8791a; --critical:#d03b3b;
+  --strong:#1f7a4d; --strong-bg:#dbefe3;
+  --promising:#2F6F6B; --promising-bg:#DCEAE8;
+  --watch:#8a6d1a; --watch-bg:#f3ead0;
+  --caution:#b4402f; --caution-bg:#f6ddd7;
+  --core:#184f95; --core-bg:#dbe7f6;
+  --shadow:0 1px 2px rgba(23,36,32,.06),0 10px 28px -10px rgba(23,36,32,.18);
+}
+@page{size:A4 portrait;margin:0;}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:13px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;}
+.page{width:210mm;height:297mm;overflow:hidden;margin:0 auto;background:var(--surface-2);
+  padding:14mm 15mm;display:flex;flex-direction:column;gap:11px;}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);font-weight:600;margin:0;}
+.head{display:flex;align-items:flex-start;gap:14px;border-bottom:1px solid var(--line);
+  padding-bottom:12px;}
+.flag{font-size:40px;line-height:1;}
+.head .title{flex:1;}
+h1{font-family:"Newsreader",Georgia,serif;font-weight:600;font-style:italic;
+  font-size:38px;line-height:1.02;margin:2px 0 4px;letter-spacing:-.01em;}
+.sub{font-size:12px;color:var(--ink-soft);font-family:"IBM Plex Mono",monospace;}
+.chip{align-self:flex-start;font-family:"IBM Plex Mono",monospace;font-size:11px;
+  font-weight:600;padding:7px 12px;border-radius:999px;white-space:nowrap;letter-spacing:.02em;}
+.chip small{display:block;font-weight:400;font-size:9.5px;opacity:.85;letter-spacing:0;
+  text-transform:none;font-family:"IBM Plex Sans",sans-serif;margin-top:2px;max-width:160px;}
+.chip.strong{background:var(--strong-bg);color:var(--strong);}
+.chip.promising{background:var(--promising-bg);color:var(--promising);}
+.chip.watch{background:var(--watch-bg);color:var(--watch);}
+.chip.caution{background:var(--caution-bg);color:var(--caution);}
+.chip.core{background:var(--core-bg);color:var(--core);}
+.heroes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.hero{background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:12px 13px;box-shadow:var(--shadow);}
+.hero .n{font-family:"Newsreader",serif;font-weight:600;font-size:30px;line-height:1;
+  color:var(--accent-ink);letter-spacing:-.02em;}
+.hero .n small{font-size:14px;font-weight:600;color:var(--ink-soft);}
+.hero .c{font-size:10.5px;color:var(--ink-faint);margin-top:6px;line-height:1.35;}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1;}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:14px 16px;box-shadow:var(--shadow);}
+.card.fit{border-left:3px solid var(--accent);}
+.sec{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 9px;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+td{padding:5px 0;border-bottom:1px solid var(--line);vertical-align:top;}
+td.k{color:var(--ink-soft);white-space:nowrap;padding-right:10px;}
+td.v{text-align:right;font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--ink);}
+tr:last-child td{border-bottom:none;}
+.tag{display:inline-block;font-size:10px;font-weight:600;padding:1px 7px;border-radius:999px;
+  font-family:"IBM Plex Mono",monospace;background:var(--surface-2);color:var(--ink-faint);}
+.tag.good{background:var(--strong-bg);color:var(--strong);}
+.tag.warn{background:var(--watch-bg);color:var(--watch);}
+.tag.crit{background:var(--caution-bg);color:var(--caution);}
+.scoreline{float:right;font-family:"IBM Plex Sans",sans-serif;text-transform:none;letter-spacing:0;}
+.scpill{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;
+  padding:2px 9px;border-radius:999px;margin-left:5px;color:#fff;}
+.scpill b{font-size:12px;}
+.scpill.a{background:var(--accent-ink);}
+.scpill.c{background:var(--watch);}
+.scpill.f{background:var(--core);}
+.scpill.ref{background:var(--surface-2);color:var(--ink-soft);}
+.qblock{margin-bottom:11px;}
+.qblock h4{font-size:11px;font-weight:600;color:var(--ink-soft);margin:0 0 3px;
+  text-transform:uppercase;letter-spacing:.04em;}
+.qblock p{margin:0;font-size:12px;color:var(--ink);line-height:1.5;}
+.fit p{font-size:12.5px;}
+.foot{border-top:1px solid var(--line);padding-top:9px;font-size:9.5px;
+  color:var(--ink-faint);line-height:1.45;}
+.foot b{color:var(--ink-soft);}
+.lede{font-size:13px;color:var(--ink-soft);max-width:none;margin:0 0 6px;}
+.lede b{color:var(--ink);}
+/* ---- interactive report (scorecard) ---- */
+.report{max-width:1000px;margin:0 auto;padding:30px 30px 60px;background:var(--bg);}
+.report h1{font-size:40px;margin:2px 0 8px;}
+.about{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:10px;padding:16px 20px;box-shadow:var(--shadow);font-size:13.5px;line-height:1.6;
+  color:var(--ink-soft);margin:0 0 18px;}
+.about b{color:var(--ink);}
+.chart-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:18px 18px 10px;box-shadow:var(--shadow);margin-bottom:16px;}
+.chart-card svg{width:100%;height:auto;display:block;}
+.legend{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center;
+  font-size:11.5px;color:var(--ink-soft);padding:6px 4px 2px;border-top:1px solid var(--line);margin-top:4px;}
+.legend .dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:-1px;}
+.gloss{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;
+  box-shadow:var(--shadow);margin-bottom:16px;font-size:12.5px;color:var(--ink-soft);}
+.gloss .chips{margin-top:9px;display:flex;flex-wrap:wrap;gap:7px;}
+.term{border-bottom:1px dotted var(--accent);cursor:pointer;color:var(--accent-ink);font-weight:600;
+  position:relative;white-space:nowrap;}
+.gloss .chips .term{background:var(--accent-soft);border:1px solid var(--line);border-bottom:1px solid var(--line);
+  border-radius:999px;padding:4px 11px;font-size:11.5px;white-space:nowrap;}
+.term:hover::after{content:attr(data-tip);position:absolute;left:0;bottom:135%;z-index:40;
+  background:var(--ink);color:#fff;font-weight:400;font-size:11px;line-height:1.45;
+  padding:8px 10px;border-radius:8px;width:250px;box-shadow:var(--shadow);white-space:normal;
+  pointer-events:none;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.two .card{box-shadow:var(--shadow);}
+.scpage .card{padding:14px 16px;}
+.sctab{font-size:11.5px;}
+.sctab td{padding:5px 5px;}
+.sctab tr.hd td{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--line);}
+.sctab td.tsub{color:var(--ink-soft);font-weight:400;font-size:10.5px;}
+.sctab tr.hd td.v{text-align:right;}
+.sctab tr.hd td .term{font-size:9px;}
+/* ---- modal ---- */
+.modal-ov{position:fixed;inset:0;background:rgba(23,36,32,.52);display:none;
+  align-items:center;justify-content:center;z-index:100;padding:24px;}
+.modal-ov.open{display:flex;}
+.modal{background:var(--surface);max-width:580px;width:100%;max-height:86vh;overflow:auto;
+  border-radius:16px;padding:26px 28px;box-shadow:0 30px 80px -20px rgba(0,0,0,.4);position:relative;}
+.modal h3{font-family:"Newsreader",serif;font-weight:600;font-size:24px;margin:0 8px 10px 0;}
+.modal p{font-size:13.5px;line-height:1.6;color:var(--ink);margin:0 0 10px;}
+.modal .msrc{font-size:11.5px;color:var(--ink-faint);}
+.modal .mcap{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--accent);font-weight:600;margin:16px 0 6px;}
+.modal-x{position:absolute;top:14px;right:16px;border:none;background:none;font-size:26px;
+  line-height:1;color:var(--ink-faint);cursor:pointer;}
+.mtab{width:100%;border-collapse:collapse;font-size:12px;}
+.mtab th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--line);padding:5px 6px;}
+.mtab td{padding:5px 6px;border-bottom:1px solid var(--line);vertical-align:top;}
+.mtab td.mv{font-family:"IBM Plex Mono",monospace;font-weight:600;white-space:nowrap;}
+.mtab td.mn{color:var(--ink-soft);font-size:11.5px;}
+@media print{
+  body{background:#fff;}
+  .page{margin:0;box-shadow:none;break-before:page;}
+  .report{max-width:none;padding:12mm 14mm;break-after:page;}
+  .term{border-bottom:none;color:var(--ink);}
+  .term:hover::after{display:none;}
+  .modal-ov{display:none !important;}
+}
+</style></head><body><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇧🇴</div>
+    <div class="title">
+      <h1>Bolivia</h1>
+      <div class="sub">BOL · Latin America · #27 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip watch">Watch / focused<small>Only worth a very focused entry.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">1.1<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">14.5<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">61<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">896</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">1.1 M <span class="tag good">mostly rural</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">14.5%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">16.1% <span class="tag">lower need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">90% <span class="tag">near-universal</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">112 / 896</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">28 · +12 <span class="tag warn">weaker than TZA</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">50 · Obstructed <span class="tag good">more open</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">50/100 <span class="tag crit">low appeal</span></td></tr>
+        
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>Spanish + Quechua + Aymara.</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>9 departments → provinces → 300+ municipalities.</p></div>
+      <div class="qblock"><h4>Context</h4><p>Andes + Amazon lowlands; rural indigenous poverty on the altiplano. Landlocked. Small base (1.1M).</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--watch)">Watch / focused</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>17</b></span><span class="scpill c">Donor <b>50</b></span><span class="scpill f">Feasibility <b>37</b></span></span></p>
+    <p>Small base, high-altitude dispersed indigenous communities, Spanish + indigenous languages. Mid governance (gap +12). Entry would need a heavily adapted model.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2016 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2022; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div></body></html>

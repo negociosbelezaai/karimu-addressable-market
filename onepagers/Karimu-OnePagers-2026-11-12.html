@@ -1,0 +1,1071 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Karimu · Country one-pagers (consolidated)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#EEF1EC; --surface:#FFFFFF; --surface-2:#E3E8E0; --line:#D7DCD2;
+  --ink:#172420; --ink-soft:#56655D; --ink-faint:#8A978F;
+  --accent:#2F6F6B; --accent-ink:#0E3634; --accent-soft:#DCEAE8;
+  --good:#0ca30c; --warning:#b8791a; --critical:#d03b3b;
+  --strong:#1f7a4d; --strong-bg:#dbefe3;
+  --promising:#2F6F6B; --promising-bg:#DCEAE8;
+  --watch:#8a6d1a; --watch-bg:#f3ead0;
+  --caution:#b4402f; --caution-bg:#f6ddd7;
+  --core:#184f95; --core-bg:#dbe7f6;
+  --shadow:0 1px 2px rgba(23,36,32,.06),0 10px 28px -10px rgba(23,36,32,.18);
+}
+@page{size:A4 portrait;margin:0;}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--bg);color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:13px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;}
+.page{width:210mm;height:297mm;overflow:hidden;margin:0 auto;background:var(--surface-2);
+  padding:14mm 15mm;display:flex;flex-direction:column;gap:11px;}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);font-weight:600;margin:0;}
+.head{display:flex;align-items:flex-start;gap:14px;border-bottom:1px solid var(--line);
+  padding-bottom:12px;}
+.flag{font-size:40px;line-height:1;}
+.head .title{flex:1;}
+h1{font-family:"Newsreader",Georgia,serif;font-weight:600;font-style:italic;
+  font-size:38px;line-height:1.02;margin:2px 0 4px;letter-spacing:-.01em;}
+.sub{font-size:12px;color:var(--ink-soft);font-family:"IBM Plex Mono",monospace;}
+.chip{align-self:flex-start;font-family:"IBM Plex Mono",monospace;font-size:11px;
+  font-weight:600;padding:7px 12px;border-radius:999px;white-space:nowrap;letter-spacing:.02em;}
+.chip small{display:block;font-weight:400;font-size:9.5px;opacity:.85;letter-spacing:0;
+  text-transform:none;font-family:"IBM Plex Sans",sans-serif;margin-top:2px;max-width:160px;}
+.chip.strong{background:var(--strong-bg);color:var(--strong);}
+.chip.promising{background:var(--promising-bg);color:var(--promising);}
+.chip.watch{background:var(--watch-bg);color:var(--watch);}
+.chip.caution{background:var(--caution-bg);color:var(--caution);}
+.chip.core{background:var(--core-bg);color:var(--core);}
+.heroes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.hero{background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:12px 13px;box-shadow:var(--shadow);}
+.hero .n{font-family:"Newsreader",serif;font-weight:600;font-size:30px;line-height:1;
+  color:var(--accent-ink);letter-spacing:-.02em;}
+.hero .n small{font-size:14px;font-weight:600;color:var(--ink-soft);}
+.hero .c{font-size:10.5px;color:var(--ink-faint);margin-top:6px;line-height:1.35;}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1;}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;
+  padding:14px 16px;box-shadow:var(--shadow);}
+.card.fit{border-left:3px solid var(--accent);}
+.sec{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 9px;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+td{padding:5px 0;border-bottom:1px solid var(--line);vertical-align:top;}
+td.k{color:var(--ink-soft);white-space:nowrap;padding-right:10px;}
+td.v{text-align:right;font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--ink);}
+tr:last-child td{border-bottom:none;}
+.tag{display:inline-block;font-size:10px;font-weight:600;padding:1px 7px;border-radius:999px;
+  font-family:"IBM Plex Mono",monospace;background:var(--surface-2);color:var(--ink-faint);}
+.tag.good{background:var(--strong-bg);color:var(--strong);}
+.tag.warn{background:var(--watch-bg);color:var(--watch);}
+.tag.crit{background:var(--caution-bg);color:var(--caution);}
+.scoreline{float:right;font-family:"IBM Plex Sans",sans-serif;text-transform:none;letter-spacing:0;}
+.scpill{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;
+  padding:2px 9px;border-radius:999px;margin-left:5px;color:#fff;}
+.scpill b{font-size:12px;}
+.scpill.a{background:var(--accent-ink);}
+.scpill.c{background:var(--watch);}
+.scpill.f{background:var(--core);}
+.scpill.ref{background:var(--surface-2);color:var(--ink-soft);}
+.qblock{margin-bottom:11px;}
+.qblock h4{font-size:11px;font-weight:600;color:var(--ink-soft);margin:0 0 3px;
+  text-transform:uppercase;letter-spacing:.04em;}
+.qblock p{margin:0;font-size:12px;color:var(--ink);line-height:1.5;}
+.fit p{font-size:12.5px;}
+.foot{border-top:1px solid var(--line);padding-top:9px;font-size:9.5px;
+  color:var(--ink-faint);line-height:1.45;}
+.foot b{color:var(--ink-soft);}
+.lede{font-size:13px;color:var(--ink-soft);max-width:none;margin:0 0 6px;}
+.lede b{color:var(--ink);}
+/* ---- interactive report (scorecard) ---- */
+.report{max-width:1000px;margin:0 auto;padding:30px 30px 60px;background:var(--bg);}
+.report h1{font-size:40px;margin:2px 0 8px;}
+.about{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:10px;padding:16px 20px;box-shadow:var(--shadow);font-size:13.5px;line-height:1.6;
+  color:var(--ink-soft);margin:0 0 18px;}
+.about b{color:var(--ink);}
+.chart-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:18px 18px 10px;box-shadow:var(--shadow);margin-bottom:16px;}
+.chart-card svg{width:100%;height:auto;display:block;}
+.legend{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center;
+  font-size:11.5px;color:var(--ink-soft);padding:6px 4px 2px;border-top:1px solid var(--line);margin-top:4px;}
+.legend .dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:-1px;}
+.gloss{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;
+  box-shadow:var(--shadow);margin-bottom:16px;font-size:12.5px;color:var(--ink-soft);}
+.gloss .chips{margin-top:9px;display:flex;flex-wrap:wrap;gap:7px;}
+.term{border-bottom:1px dotted var(--accent);cursor:pointer;color:var(--accent-ink);font-weight:600;
+  position:relative;white-space:nowrap;}
+.gloss .chips .term{background:var(--accent-soft);border:1px solid var(--line);border-bottom:1px solid var(--line);
+  border-radius:999px;padding:4px 11px;font-size:11.5px;white-space:nowrap;}
+.term:hover::after{content:attr(data-tip);position:absolute;left:0;bottom:135%;z-index:40;
+  background:var(--ink);color:#fff;font-weight:400;font-size:11px;line-height:1.45;
+  padding:8px 10px;border-radius:8px;width:250px;box-shadow:var(--shadow);white-space:normal;
+  pointer-events:none;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.two .card{box-shadow:var(--shadow);}
+.scpage .card{padding:14px 16px;}
+.sctab{font-size:11.5px;}
+.sctab td{padding:5px 5px;}
+.sctab tr.hd td{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--line);}
+.sctab td.tsub{color:var(--ink-soft);font-weight:400;font-size:10.5px;}
+.sctab tr.hd td.v{text-align:right;}
+.sctab tr.hd td .term{font-size:9px;}
+/* ---- modal ---- */
+.modal-ov{position:fixed;inset:0;background:rgba(23,36,32,.52);display:none;
+  align-items:center;justify-content:center;z-index:100;padding:24px;}
+.modal-ov.open{display:flex;}
+.modal{background:var(--surface);max-width:580px;width:100%;max-height:86vh;overflow:auto;
+  border-radius:16px;padding:26px 28px;box-shadow:0 30px 80px -20px rgba(0,0,0,.4);position:relative;}
+.modal h3{font-family:"Newsreader",serif;font-weight:600;font-size:24px;margin:0 8px 10px 0;}
+.modal p{font-size:13.5px;line-height:1.6;color:var(--ink);margin:0 0 10px;}
+.modal .msrc{font-size:11.5px;color:var(--ink-faint);}
+.modal .mcap{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--accent);font-weight:600;margin:16px 0 6px;}
+.modal-x{position:absolute;top:14px;right:16px;border:none;background:none;font-size:26px;
+  line-height:1;color:var(--ink-faint);cursor:pointer;}
+.mtab{width:100%;border-collapse:collapse;font-size:12px;}
+.mtab th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--line);padding:5px 6px;}
+.mtab td{padding:5px 6px;border-bottom:1px solid var(--line);vertical-align:top;}
+.mtab td.mv{font-family:"IBM Plex Mono",monospace;font-weight:600;white-space:nowrap;}
+.mtab td.mn{color:var(--ink-soft);font-size:11.5px;}
+@media print{
+  body{background:#fff;}
+  .page{margin:0;box-shadow:none;break-before:page;}
+  .report{max-width:none;padding:12mm 14mm;break-after:page;}
+  .term{border-bottom:none;color:var(--ink);}
+  .term:hover::after{display:none;}
+  .modal-ov{display:none !important;}
+}
+</style></head><body><div class="report">
+  <p class="eyebrow">Karimu · Addressable-market study · Prioritization scorecard</p>
+  <h1 style="font-family:Newsreader,serif;font-style:italic;font-weight:600;">Where Karimu should expand beyond Tanzania</h1>
+  <div class="about">
+    <b>About this analysis.</b> Karimu lifts people out of extreme poverty by saturating one rural community at a time (school, clean water, health post, agriculture, savings groups) in partnership with local leadership. Today it works in 3 wards of Tanzania. At the <b>3 Nov 2026 strategy meeting</b> the team set a goal of reaching <b>10 million people in 10 years, across 3 countries on at least 2 continents</b>, funded by roughly <b>$10M from large (mostly European) foundations</b>. This report ranks <b>14 candidate countries</b> (plus Tanzania as the reference) to inform that choice, which the group finalizes at the April planning session. Each country is placed by how strongly it pulls the strategy (<span class="term" data-m="appeal" data-tip="Half Impact + half Donor appeal: how strongly a country pulls the strategy (reach plus fundability).">Strategic appeal</span>) against how realistic it is to execute there (<span class="term" data-m="feasibility" data-tip="How executable the model is: civic openness + governance + replicability + founder presence.">Feasibility</span>).
+  </div>
+  <div class="chart-card">
+    <svg viewBox="0 0 886 610" role="img" aria-label="Strategic appeal vs feasibility bubble chart"><rect x="462.0" y="34.0" width="390.0" height="260.0" fill="#DCEAE8" opacity=".55"/><line x1="72.0" y1="554.0" x2="72.0" y2="34.0" stroke="#D7DCD2" stroke-width="1"/><line x1="72.0" y1="554.0" x2="852.0" y2="554.0" stroke="#D7DCD2" stroke-width="1"/><text x="72.0" y="572.0" font-size="11" fill="#8A978F" text-anchor="middle" font-family="IBM Plex Mono">0</text><text x="62.0" y="558.0" font-size="11" fill="#8A978F" text-anchor="end" font-family="IBM Plex Mono">0</text><line x1="267.0" y1="554.0" x2="267.0" y2="34.0" stroke="#D7DCD2" stroke-width="1"/><line x1="72.0" y1="424.0" x2="852.0" y2="424.0" stroke="#D7DCD2" stroke-width="1"/><text x="267.0" y="572.0" font-size="11" fill="#8A978F" text-anchor="middle" font-family="IBM Plex Mono">25</text><text x="62.0" y="428.0" font-size="11" fill="#8A978F" text-anchor="end" font-family="IBM Plex Mono">25</text><line x1="462.0" y1="554.0" x2="462.0" y2="34.0" stroke="#D7DCD2" stroke-width="1"/><line x1="72.0" y1="294.0" x2="852.0" y2="294.0" stroke="#D7DCD2" stroke-width="1"/><text x="462.0" y="572.0" font-size="11" fill="#8A978F" text-anchor="middle" font-family="IBM Plex Mono">50</text><text x="62.0" y="298.0" font-size="11" fill="#8A978F" text-anchor="end" font-family="IBM Plex Mono">50</text><line x1="657.0" y1="554.0" x2="657.0" y2="34.0" stroke="#D7DCD2" stroke-width="1"/><line x1="72.0" y1="164.0" x2="852.0" y2="164.0" stroke="#D7DCD2" stroke-width="1"/><text x="657.0" y="572.0" font-size="11" fill="#8A978F" text-anchor="middle" font-family="IBM Plex Mono">75</text><text x="62.0" y="168.0" font-size="11" fill="#8A978F" text-anchor="end" font-family="IBM Plex Mono">75</text><line x1="852.0" y1="554.0" x2="852.0" y2="34.0" stroke="#D7DCD2" stroke-width="1"/><line x1="72.0" y1="34.0" x2="852.0" y2="34.0" stroke="#D7DCD2" stroke-width="1"/><text x="852.0" y="572.0" font-size="11" fill="#8A978F" text-anchor="middle" font-family="IBM Plex Mono">100</text><text x="62.0" y="38.0" font-size="11" fill="#8A978F" text-anchor="end" font-family="IBM Plex Mono">100</text><line x1="462.0" y1="554.0" x2="462.0" y2="34.0" stroke="#56655D" stroke-width="1.4" stroke-dasharray="5 3"/><line x1="72.0" y1="294.0" x2="852.0" y2="294.0" stroke="#56655D" stroke-width="1.4" stroke-dasharray="5 3"/><text x="844.2" y="44.4" font-size="12" fill="#2F6F6B" text-anchor="end" font-family="IBM Plex Mono" font-weight="600">TARGET: high appeal + feasible</text><text x="79.8" y="44.4" font-size="11" fill="#8A978F" text-anchor="start" font-family="IBM Plex Mono">high appeal, hard to execute</text><text x="844.2" y="539.5999999999999" font-size="11" fill="#8A978F" text-anchor="end" font-family="IBM Plex Mono">easier, lower appeal</text><text x="79.8" y="539.5999999999999" font-size="11" fill="#8A978F" text-anchor="start" font-family="IBM Plex Mono">deprioritize</text><text x="462.0" y="598.0" font-size="13.5" fill="#172420" text-anchor="middle" font-family="IBM Plex Sans" font-weight="600">Feasibility of execution &#8594;</text><text transform="translate(20.0,294.0) rotate(-90)" font-size="13.5" fill="#172420" text-anchor="middle" font-family="IBM Plex Sans" font-weight="600">Strategic appeal (impact + donor) &#8594;</text><circle cx="630.1" cy="123.3" r="41.0" fill="#8A978F" fill-opacity="0.18" stroke="#8A978F" stroke-width="1.8" stroke-dasharray="4 2"/><text x="630.1" y="127.3" font-size="12.5" fill="#8A978F" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">TZA</text><text x="668.1" y="90.3" font-size="17" fill="#b8791a" text-anchor="middle">★</text><circle cx="353.8" cy="66.6" r="37.2" fill="#2F6F6B" fill-opacity="0.24" stroke="#2F6F6B" stroke-width="1.8"/><text x="353.8" y="70.6" font-size="12.5" fill="#2F6F6B" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">MDG</text><circle cx="384.2" cy="124.5" r="36.7" fill="#2F6F6B" fill-opacity="0.24" stroke="#2F6F6B" stroke-width="1.8"/><text x="384.2" y="128.5" font-size="12.5" fill="#2F6F6B" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">UGA</text><circle cx="501.8" cy="89.3" r="33.2" fill="#2F6F6B" fill-opacity="0.24" stroke="#2F6F6B" stroke-width="1.8"/><text x="501.8" y="93.3" font-size="12.5" fill="#2F6F6B" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">MWI</text><circle cx="469.3" cy="237.4" r="33.0" fill="#2F6F6B" fill-opacity="0.24" stroke="#2F6F6B" stroke-width="1.8"/><text x="469.3" y="241.4" font-size="12.5" fill="#2F6F6B" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">KEN</text><circle cx="235.7" cy="346.9" r="29.0" fill="#2a78d6" fill-opacity="0.24" stroke="#2a78d6" stroke-width="1.8"/><text x="235.7" y="350.9" font-size="12.5" fill="#2a78d6" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">BGD</text><circle cx="459.7" cy="335.5" r="26.2" fill="#2a78d6" fill-opacity="0.24" stroke="#2a78d6" stroke-width="1.8"/><text x="459.7" y="339.5" font-size="12.5" fill="#2a78d6" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">IDN</text><text x="482.9" y="317.3" font-size="17" fill="#b8791a" text-anchor="middle">★</text><circle cx="541.5" cy="461.5" r="22.8" fill="#b8791a" fill-opacity="0.24" stroke="#b8791a" stroke-width="1.8"/><text x="541.5" y="465.5" font-size="12.5" fill="#b8791a" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">BRA</text><text x="561.3" y="446.7" font-size="17" fill="#b8791a" text-anchor="middle">★</text><circle cx="502.4" cy="298.2" r="22.7" fill="#2F6F6B" fill-opacity="0.24" stroke="#2F6F6B" stroke-width="1.8"/><text x="502.4" y="302.2" font-size="12.5" fill="#2F6F6B" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">CIV</text><circle cx="522.1" cy="276.7" r="22.4" fill="#2F6F6B" fill-opacity="0.24" stroke="#2F6F6B" stroke-width="1.8"/><text x="522.1" y="280.7" font-size="12.5" fill="#2F6F6B" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">SEN</text><circle cx="565.5" cy="328.3" r="21.9" fill="#2F6F6B" fill-opacity="0.24" stroke="#2F6F6B" stroke-width="1.8"/><text x="565.5" y="332.3" font-size="12.5" fill="#2F6F6B" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">GHA</text><circle cx="349.8" cy="356.7" r="20.9" fill="#2a78d6" fill-opacity="0.24" stroke="#2a78d6" stroke-width="1.8"/><text x="349.8" y="360.7" font-size="12.5" fill="#2a78d6" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">PHL</text><circle cx="356.8" cy="245.3" r="20.6" fill="#2F6F6B" fill-opacity="0.24" stroke="#2F6F6B" stroke-width="1.8"/><text x="356.8" y="249.3" font-size="12.5" fill="#2F6F6B" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">TGO</text><circle cx="296.6" cy="359.1" r="19.8" fill="#b8791a" fill-opacity="0.24" stroke="#b8791a" stroke-width="1.8"/><text x="296.6" y="363.1" font-size="12.5" fill="#b8791a" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">HND</text><circle cx="359.4" cy="379.4" r="17.1" fill="#b8791a" fill-opacity="0.24" stroke="#b8791a" stroke-width="1.8"/><text x="359.4" y="383.4" font-size="12.5" fill="#b8791a" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600">BOL</text></svg>
+    <div class="legend"><span><span class="dot" style="background:#2F6F6B"></span>Africa</span><span><span class="dot" style="background:#2a78d6"></span>Asia</span><span><span class="dot" style="background:#b8791a"></span>Latin America</span><span><span class="dot" style="background:#8A978F"></span>Tanzania (reference)</span><span>&#9679; bubble size = rural poor</span><span style="color:#b8791a">&#9733; founder presence</span></div>
+  </div>
+  <div class="gloss">
+    <b style="color:var(--ink)">Hover any term for a quick definition; click it to open the full explanation with all 15 country values.</b>
+    <div class="chips"><span class="term" data-m="appeal" data-tip="Half Impact + half Donor appeal: how strongly a country pulls the strategy (reach plus fundability).">Strategic appeal (Y axis)</span><span class="term" data-m="feasibility" data-tip="How executable the model is: civic openness + governance + replicability + founder presence.">Feasibility (X axis)</span><span class="term" data-m="impact" data-tip="Reach + depth of need + service void a country offers the model.">Impact</span><span class="term" data-m="donor" data-tip="How well a country attracts international (esp. European) foundation money: the meeting's decisive lens.">Donor appeal</span><span class="term" data-m="stunting" data-tip="Share of under-5 children too short for their age: the standard proxy for deep, chronic deprivation.">Child stunting (under 5)</span><span class="term" data-m="electricity" data-tip="Share of rural people with electricity; low = big 'white space' Karimu can build into.">Rural electricity (white space)</span><span class="term" data-m="civic" data-tip="Room for civil society / NGOs to operate, 0–100. Tanzania is 'Repressed' yet Karimu operates, so treat this as friction, not a veto.">Civic space (CIVICUS)</span><span class="term" data-m="cpigap" data-tip="Corruption Perceptions Index gap vs Tanzania (40). Positive = weaker governance than the base.">CPI gap vs Tanzania</span><span class="term" data-m="replicability" data-tip="How well the Tanzania playbook transfers: language + agro-ecology + regional proximity.">Replicability</span><span class="term" data-m="founder" data-tip="Founder / local-network presence that multiplies execution (shown as a star on the chart).">Founder presence</span><span class="term" data-m="ruralpoor" data-tip="People below $3/day living in rural areas: the addressable base (and each bubble's size).">Rural poor</span><span class="term" data-m="community" data-tip="Smallest official local unit with its own leadership (~5–30k people), e.g. a ward: Karimu's unit of saturation.">Target community (ward-equivalent)</span></div>
+  </div>
+  <div class="two">
+    <div class="card">
+      <p class="sec">How to read the axes</p>
+      <div class="qblock"><h4><span class="term" data-m="appeal" data-tip="Half Impact + half Donor appeal: how strongly a country pulls the strategy (reach plus fundability).">Strategic appeal</span> = ½ <span class="term" data-m="impact" data-tip="Reach + depth of need + service void a country offers the model.">Impact</span> + ½ <span class="term" data-m="donor" data-tip="How well a country attracts international (esp. European) foundation money: the meeting's decisive lens.">Donor appeal</span></h4>
+        <p>Impact blends the size of the rural-poor base, the depth of need (<span class="term" data-m="stunting" data-tip="Share of under-5 children too short for their age: the standard proxy for deep, chronic deprivation.">stunting</span>) and the service void (<span class="term" data-m="electricity" data-tip="Share of rural people with electricity; low = big 'white space' Karimu can build into.">rural electricity</span>). Donor appeal is how well the country attracts international foundation money, the lens Karimu's leadership uses to raise the $10M.</p></div>
+      <div class="qblock"><h4><span class="term" data-m="feasibility" data-tip="How executable the model is: civic openness + governance + replicability + founder presence.">Feasibility</span> = <span class="term" data-m="civic" data-tip="Room for civil society / NGOs to operate, 0–100. Tanzania is 'Repressed' yet Karimu operates, so treat this as friction, not a veto.">civic space</span> + <span class="term" data-m="cpigap" data-tip="Corruption Perceptions Index gap vs Tanzania (40). Positive = weaker governance than the base.">governance</span> + <span class="term" data-m="replicability" data-tip="How well the Tanzania playbook transfers: language + agro-ecology + regional proximity.">replicability</span> + <span class="term" data-m="founder" data-tip="Founder / local-network presence that multiplies execution (shown as a star on the chart).">founder presence</span></h4>
+        <p>How realistic it is to run the model there. The ★ (Indonesia, Brazil) adds the founder's local network.</p></div>
+    </div>
+    <div class="card">
+      <p class="sec">What the chart says</p>
+      <div class="qblock"><p><b>Madagascar</b> has the highest appeal (3rd-largest market, extreme need, very high visibility) but the lowest feasibility (weak governance, repressed civic space). <b>Malawi</b> is the best appeal/feasibility balance. <b>Uganda</b>: high appeal, governance friction. <b>Kenya</b>: top replicability (Swahili + English, like Tanzania). <b>Ghana / Senegal / Côte d'Ivoire</b>: the more feasible West-African entry, lower appeal. <b>Indonesia</b> (★) has mid scores, but a founder's presence and the two-continent rule make it the natural Asia anchor. <b>Brazil</b>: lowest appeal, global foundations unlikely to fund.</p></div>
+    </div>
+  </div>
+  <div class="card scpage">
+    <p class="sec">Ranking (by <span class="term" data-m="appeal" data-tip="Half Impact + half Donor appeal: how strongly a country pulls the strategy (reach plus fundability).">Strategic appeal</span>) · ★ = founder presence · click any column header for its definition</p>
+    <table class="sctab">
+      <tr class="hd"><td>Country</td><td class="v"><span class="term" data-m="appeal" data-tip="Half Impact + half Donor appeal: how strongly a country pulls the strategy (reach plus fundability).">Appeal</span></td><td class="v tsub"><span class="term" data-m="impact" data-tip="Reach + depth of need + service void a country offers the model.">imp.</span></td><td class="v tsub"><span class="term" data-m="donor" data-tip="How well a country attracts international (esp. European) foundation money: the meeting's decisive lens.">donor</span></td>
+        <td class="v"><span class="term" data-m="feasibility" data-tip="How executable the model is: civic openness + governance + replicability + founder presence.">Feas.</span></td><td class="v tsub"><span class="term" data-m="ruralpoor" data-tip="People below $3/day living in rural areas: the addressable base (and each bubble's size).">scale</span></td><td class="v tsub"><span class="term" data-m="stunting" data-tip="Share of under-5 children too short for their age: the standard proxy for deep, chronic deprivation.">need</span></td>
+        <td class="v tsub"><span class="term" data-m="electricity" data-tip="Share of rural people with electricity; low = big 'white space' Karimu can build into.">void</span></td><td class="v tsub"><span class="term" data-m="replicability" data-tip="How well the Tanzania playbook transfers: language + agro-ecology + regional proximity.">repl.</span></td><td>Read</td></tr>
+      <tr><td class="k">🇲🇬 Madagascar</td><td class="v">94</td><td class="v tsub">97</td><td class="v tsub">90</td><td class="v">36</td><td class="v tsub">100</td><td class="v tsub">97</td><td class="v tsub">94</td><td class="v tsub">70</td><td><span class="chip strong" style="font-size:9px;padding:3px 8px">Africa priority</span></td></tr><tr><td class="k">🇲🇼 Malawi</td><td class="v">89</td><td class="v tsub">89</td><td class="v tsub">90</td><td class="v">55</td><td class="v tsub">72</td><td class="v tsub">100</td><td class="v tsub">100</td><td class="v tsub">92</td><td><span class="chip strong" style="font-size:9px;padding:3px 8px">Strong fit</span></td></tr><tr><td class="k">🇺🇬 Uganda</td><td class="v">83</td><td class="v tsub">80</td><td class="v tsub">85</td><td class="v">40</td><td class="v tsub">97</td><td class="v tsub">71</td><td class="v tsub">68</td><td class="v tsub">95</td><td><span class="chip strong" style="font-size:9px;padding:3px 8px">Strong fit</span></td></tr><tr><td class="k">🇰🇪 Kenya</td><td class="v">61</td><td class="v tsub">52</td><td class="v tsub">70</td><td class="v">51</td><td class="v tsub">70</td><td class="v tsub">44</td><td class="v tsub">35</td><td class="v tsub">93</td><td><span class="chip promising" style="font-size:9px;padding:3px 8px">Promising</span></td></tr><tr><td class="k">🇹🇬 Togo</td><td class="v">59</td><td class="v tsub">47</td><td class="v tsub">72</td><td class="v">37</td><td class="v tsub">13</td><td class="v tsub">58</td><td class="v tsub">80</td><td class="v tsub">58</td><td><span class="chip watch" style="font-size:9px;padding:3px 8px">Watch / West Africa</span></td></tr><tr><td class="k">🇸🇳 Senegal</td><td class="v">53</td><td class="v tsub">39</td><td class="v tsub">68</td><td class="v">58</td><td class="v tsub">19</td><td class="v tsub">44</td><td class="v tsub">60</td><td class="v tsub">62</td><td><span class="chip promising" style="font-size:9px;padding:3px 8px">Promising</span></td></tr><tr><td class="k">🇨🇮 Côte d'Ivoire</td><td class="v">49</td><td class="v tsub">40</td><td class="v tsub">58</td><td class="v">55</td><td class="v tsub">20</td><td class="v tsub">53</td><td class="v tsub">55</td><td class="v tsub">58</td><td><span class="chip watch" style="font-size:9px;padding:3px 8px">Watch / West Africa</span></td></tr><tr><td class="k">🇬🇭 Ghana</td><td class="v">43</td><td class="v tsub">27</td><td class="v tsub">60</td><td class="v">63</td><td class="v tsub">17</td><td class="v tsub">43</td><td class="v tsub">24</td><td class="v tsub">78</td><td><span class="chip promising" style="font-size:9px;padding:3px 8px">Promising</span></td></tr><tr><td class="k">🇮🇩 Indonesia <span style="color:#b8791a">&#9733;</span></td><td class="v">42</td><td class="v tsub">36</td><td class="v tsub">48</td><td class="v">50</td><td class="v tsub">34</td><td class="v tsub">75</td><td class="v tsub">0</td><td class="v tsub">36</td><td><span class="chip promising" style="font-size:9px;padding:3px 8px">Asia anchor (founder)</span></td></tr><tr><td class="k">🇧🇩 Bangladesh</td><td class="v">40</td><td class="v tsub">40</td><td class="v tsub">40</td><td class="v">21</td><td class="v tsub">47</td><td class="v tsub">68</td><td class="v tsub">1</td><td class="v tsub">34</td><td><span class="chip watch" style="font-size:9px;padding:3px 8px">Watch / focused</span></td></tr><tr><td class="k">🇵🇭 Philippines</td><td class="v">38</td><td class="v tsub">30</td><td class="v tsub">46</td><td class="v">36</td><td class="v tsub">14</td><td class="v tsub">74</td><td class="v tsub">6</td><td class="v tsub">46</td><td><span class="chip watch" style="font-size:9px;padding:3px 8px">Watch / focused</span></td></tr><tr><td class="k">🇭🇳 Honduras</td><td class="v">37</td><td class="v tsub">25</td><td class="v tsub">50</td><td class="v">29</td><td class="v tsub">11</td><td class="v tsub">55</td><td class="v tsub">13</td><td class="v tsub">58</td><td><span class="chip caution" style="font-size:9px;padding:3px 8px">Caution</span></td></tr><tr><td class="k">🇧🇴 Bolivia</td><td class="v">34</td><td class="v tsub">17</td><td class="v tsub">50</td><td class="v">37</td><td class="v tsub">5</td><td class="v tsub">39</td><td class="v tsub">11</td><td class="v tsub">52</td><td><span class="chip watch" style="font-size:9px;padding:3px 8px">Watch / focused</span></td></tr><tr><td class="k">🇧🇷 Brazil <span style="color:#b8791a">&#9733;</span></td><td class="v">18</td><td class="v tsub">14</td><td class="v tsub">22</td><td class="v">60</td><td class="v tsub">20</td><td class="v tsub">17</td><td class="v tsub">1</td><td class="v tsub">68</td><td><span class="chip watch" style="font-size:9px;padding:3px 8px">Weak for global fundraising</span></td></tr>
+      <tr style="opacity:.7"><td class="k">🇹🇿 Tanzania <small>(ref.)</small> <span style="color:#b8791a">&#9733;</span></td><td class="v">83</td><td class="v tsub">84</td><td class="v tsub">82</td><td class="v">72</td><td class="v tsub">100</td><td class="v tsub">78</td><td class="v tsub">68</td><td class="v tsub">100</td><td><span class="chip core" style="font-size:9px;padding:3px 8px">Current core</span></td></tr>
+    </table>
+  </div>
+  <div class="foot">
+    <b>Sources:</b> rural poor — Gemini/World Bank (2026-10-10); stunting &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates (latest national survey, year varies); rural electricity — World Bank EG.ELC.ACCS.RU.ZS (~2021-24; Asia/Latam by WB 2022 regional average; Madagascar ~11%, sources vary 7–27%); CPI 2025 — Transparency International; civic space — CIVICUS Monitor 2024. <b>Donor appeal</b>, <b>replicability</b>, <b>founder presence</b> and the composite indices (Impact, Appeal, Feasibility) are decision-support reads with adjustable weights, based on the 3 Nov meeting, not external source data. &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div>
+<div class="modal-ov" id="mov">
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="modal-x" onclick="closeMetric()" aria-label="Close">&times;</button>
+    <h3 id="mTitle"></h3>
+    <p id="mLong"></p>
+    <p class="msrc" id="mSrc"></p>
+    <p class="mcap">All 15 countries on this metric</p>
+    <table class="mtab"><thead><tr><th>Country</th><th>Value</th><th>Note</th></tr></thead>
+      <tbody id="mBody"></tbody></table>
+  </div>
+</div>
+
+<script>
+const METRICS = {"appeal": {"title": "Strategic appeal (Y axis)", "long": "The vertical axis of the chart. It blends how much good Karimu can do there (Impact) with how well the country attracts the international foundation money needed to reach the $10M goal (Donor appeal), weighted 50/50. If the group decides fundraising should dominate, raise the Donor-appeal weight.", "src": "Composite index (adjustable weights).", "rows": [{"name": "🇲🇬 Madagascar", "value": "94", "note": "impact 97 + donor 90"}, {"name": "🇲🇼 Malawi", "value": "89", "note": "impact 89 + donor 90"}, {"name": "🇹🇿 Tanzania (ref.)", "value": "83", "note": "impact 84 + donor 82"}, {"name": "🇺🇬 Uganda", "value": "83", "note": "impact 80 + donor 85"}, {"name": "🇰🇪 Kenya", "value": "61", "note": "impact 52 + donor 70"}, {"name": "🇹🇬 Togo", "value": "59", "note": "impact 47 + donor 72"}, {"name": "🇸🇳 Senegal", "value": "53", "note": "impact 39 + donor 68"}, {"name": "🇨🇮 Côte d'Ivoire", "value": "49", "note": "impact 40 + donor 58"}, {"name": "🇬🇭 Ghana", "value": "43", "note": "impact 27 + donor 60"}, {"name": "🇮🇩 Indonesia", "value": "42", "note": "impact 36 + donor 48"}, {"name": "🇧🇩 Bangladesh", "value": "40", "note": "impact 40 + donor 40"}, {"name": "🇵🇭 Philippines", "value": "38", "note": "impact 30 + donor 46"}, {"name": "🇭🇳 Honduras", "value": "37", "note": "impact 25 + donor 50"}, {"name": "🇧🇴 Bolivia", "value": "34", "note": "impact 17 + donor 50"}, {"name": "🇧🇷 Brazil", "value": "18", "note": "impact 14 + donor 22"}]}, "feasibility": {"title": "Feasibility (X axis)", "long": "The horizontal axis: how realistic it is to actually run and scale the Karimu model there. Civic openness (30%) + governance vs Tanzania (25%) + replicability of the Tanzania playbook (30%) + founder/local-network presence (15%).", "src": "Composite index (adjustable weights).", "rows": [{"name": "🇹🇿 Tanzania (ref.)", "value": "72", "note": "civic 26 · gov 75 · replic 100 · founder 100"}, {"name": "🇬🇭 Ghana", "value": "63", "note": "civic 60 · gov 88 · replic 78 · founder 0"}, {"name": "🇧🇷 Brazil", "value": "60", "note": "civic 55 · gov 54 · replic 68 · founder 65"}, {"name": "🇸🇳 Senegal", "value": "58", "note": "civic 47 · gov 100 · replic 62 · founder 0"}, {"name": "🇨🇮 Côte d'Ivoire", "value": "55", "note": "civic 53 · gov 88 · replic 58 · founder 0"}, {"name": "🇲🇼 Malawi", "value": "55", "note": "civic 50 · gov 50 · replic 92 · founder 0"}, {"name": "🇰🇪 Kenya", "value": "51", "note": "civic 49 · gov 33 · replic 93 · founder 0"}, {"name": "🇮🇩 Indonesia", "value": "50", "note": "civic 42 · gov 50 · replic 36 · founder 92"}, {"name": "🇺🇬 Uganda", "value": "40", "note": "civic 28 · gov 12 · replic 95 · founder 0"}, {"name": "🇧🇴 Bolivia", "value": "37", "note": "civic 50 · gov 25 · replic 52 · founder 0"}, {"name": "🇹🇬 Togo", "value": "37", "note": "civic 29 · gov 42 · replic 58 · founder 0"}, {"name": "🇲🇬 Madagascar", "value": "36", "note": "civic 40 · gov 12 · replic 70 · founder 0"}, {"name": "🇵🇭 Philippines", "value": "36", "note": "civic 38 · gov 42 · replic 46 · founder 0"}, {"name": "🇭🇳 Honduras", "value": "29", "note": "civic 38 · gov 0 · replic 58 · founder 0"}, {"name": "🇧🇩 Bangladesh", "value": "21", "note": "civic 29 · gov 8 · replic 34 · founder 0"}]}, "impact": {"title": "Impact", "long": "Scale (number of rural poor, 40%) + depth of need (child stunting, 30%) + 'white space' (the rural-electricity gap the model can build into, 30%).", "src": "Composite of World Bank / UNICEF data.", "rows": [{"name": "🇲🇬 Madagascar", "value": "97", "note": "scale 100 · need 97 · void 94"}, {"name": "🇲🇼 Malawi", "value": "89", "note": "scale 72 · need 100 · void 100"}, {"name": "🇹🇿 Tanzania (ref.)", "value": "84", "note": "scale 100 · need 78 · void 68"}, {"name": "🇺🇬 Uganda", "value": "80", "note": "scale 97 · need 71 · void 68"}, {"name": "🇰🇪 Kenya", "value": "52", "note": "scale 70 · need 44 · void 35"}, {"name": "🇹🇬 Togo", "value": "47", "note": "scale 13 · need 58 · void 80"}, {"name": "🇨🇮 Côte d'Ivoire", "value": "40", "note": "scale 20 · need 53 · void 55"}, {"name": "🇧🇩 Bangladesh", "value": "40", "note": "scale 47 · need 68 · void 1"}, {"name": "🇸🇳 Senegal", "value": "39", "note": "scale 19 · need 44 · void 60"}, {"name": "🇮🇩 Indonesia", "value": "36", "note": "scale 34 · need 75 · void 0"}, {"name": "🇵🇭 Philippines", "value": "30", "note": "scale 14 · need 74 · void 6"}, {"name": "🇬🇭 Ghana", "value": "27", "note": "scale 17 · need 43 · void 24"}, {"name": "🇭🇳 Honduras", "value": "25", "note": "scale 11 · need 55 · void 13"}, {"name": "🇧🇴 Bolivia", "value": "17", "note": "scale 5 · need 39 · void 11"}, {"name": "🇧🇷 Brazil", "value": "14", "note": "scale 20 · need 17 · void 1"}]}, "donor": {"title": "Donor appeal", "long": "Karimu's leadership judges that Africa attracts more international giving than SE Asia, which attracts more than Latin America, driven by the visibility of extreme poverty, low internal resources and low NGO saturation. Brazil is penalized: a middle-income country global foundations are unlikely to fund. This is the lens that decides where the $10M can realistically be raised.", "src": "Qualitative read from the 3 Nov 2026 strategy meeting.", "rows": [{"name": "🇲🇼 Malawi", "value": "90", "note": "Among the world's poorest; classic donor-appeal profile."}, {"name": "🇲🇬 Madagascar", "value": "90", "note": "Extreme poverty, highly visible to European donors; LDC."}, {"name": "🇺🇬 Uganda", "value": "85", "note": "High poverty + refugee-hosting narrative; LDC."}, {"name": "🇹🇿 Tanzania (ref.)", "value": "82", "note": "Karimu's proven story; the reference."}, {"name": "🇹🇬 Togo", "value": "72", "note": "Small, very poor West African LDC."}, {"name": "🇰🇪 Kenya", "value": "70", "note": "Strong, but Nairobi's visible economy dilutes appeal."}, {"name": "🇸🇳 Senegal", "value": "68", "note": "Stable, moderate poverty; solid but not extreme."}, {"name": "🇬🇭 Ghana", "value": "60", "note": "Lower-middle income, more developed; moderate appeal."}, {"name": "🇨🇮 Côte d'Ivoire", "value": "58", "note": "Fast-growing economy, lower poverty rate; weaker appeal."}, {"name": "🇧🇴 Bolivia", "value": "50", "note": "Poor Andean nation, limited own resources."}, {"name": "🇭🇳 Honduras", "value": "50", "note": "Poor; violence/migration narrative aids appeal."}, {"name": "🇮🇩 Indonesia", "value": "48", "note": "SE Asia draws less international giving; middle-income."}, {"name": "🇵🇭 Philippines", "value": "46", "note": "Middle-income archipelago; moderate appeal."}, {"name": "🇧🇩 Bangladesh", "value": "40", "note": "NGO-saturated (BRAC/Grameen); crowded for donors."}, {"name": "🇧🇷 Brazil", "value": "22", "note": "Upper-middle income; global foundations unlikely to fund."}]}, "stunting": {"title": "Child stunting (under 5)", "long": "Stunting is low height-for-age in children under five. It is the development sector's preferred, internationally comparable marker of chronic poverty and under-nutrition, sharper and more comparable across countries than income-poverty lines. For Karimu it flags where a community intervention (nutrition, water, health, schooling) has the most to fix.", "src": "UNICEF/WHO/World Bank Joint Malnutrition Estimates (latest national survey; year varies by country).", "rows": [{"name": "🇲🇼 Malawi", "value": "40.9% (2019)", "note": "severe need"}, {"name": "🇲🇬 Madagascar", "value": "39.8% (2021)", "note": "severe need"}, {"name": "🇹🇿 Tanzania (ref.)", "value": "31.8% (2018)", "note": "severe need"}, {"name": "🇮🇩 Indonesia", "value": "30.8% (2018)", "note": "severe need"}, {"name": "🇵🇭 Philippines", "value": "30.3% (2018)", "note": "severe need"}, {"name": "🇺🇬 Uganda", "value": "28.9% (2016)", "note": "moderate need"}, {"name": "🇧🇩 Bangladesh", "value": "28% (2019)", "note": "moderate need"}, {"name": "🇹🇬 Togo", "value": "23.8% (2017)", "note": "moderate need"}, {"name": "🇭🇳 Honduras", "value": "22.6% (2012)", "note": "moderate need"}, {"name": "🇨🇮 Côte d'Ivoire", "value": "21.6% (2016)", "note": "moderate need"}, {"name": "🇰🇪 Kenya", "value": "18% (2022)", "note": "moderate need"}, {"name": "🇸🇳 Senegal", "value": "17.9% (2019)", "note": "lower need"}, {"name": "🇬🇭 Ghana", "value": "17.5% (2017)", "note": "lower need"}, {"name": "🇧🇴 Bolivia", "value": "16.1% (2016)", "note": "lower need"}, {"name": "🇧🇷 Brazil", "value": "7% (2019)", "note": "lower need"}]}, "electricity": {"title": "Rural electricity (white space)", "long": "Percent of the rural population with access to electricity. A low number means a large unserved gap, exactly the basic infrastructure Karimu builds. It cleanly separates the African cluster (deep void) from Asia/Latin America, where rural power is largely solved and the remaining need is about quality, not access.", "src": "World Bank EG.ELC.ACCS.RU.ZS (~2021–24; Asia/Latam anchored to WB 2022 regional averages; Madagascar ~11%, sources vary 7–27%).", "rows": [{"name": "🇲🇼 Malawi", "value": "5.6%", "note": "deep void"}, {"name": "🇲🇬 Madagascar", "value": "11%", "note": "deep void"}, {"name": "🇹🇬 Togo", "value": "24.7%", "note": "deep void"}, {"name": "🇺🇬 Uganda", "value": "35.9%", "note": "deep void"}, {"name": "🇹🇿 Tanzania (ref.)", "value": "36%", "note": "deep void"}, {"name": "🇸🇳 Senegal", "value": "43.4%", "note": "partial gap"}, {"name": "🇨🇮 Côte d'Ivoire", "value": "47.7%", "note": "partial gap"}, {"name": "🇰🇪 Kenya", "value": "67.1%", "note": "partial gap"}, {"name": "🇬🇭 Ghana", "value": "77.8%", "note": "partial gap"}, {"name": "🇭🇳 Honduras", "value": "88%", "note": "near-universal"}, {"name": "🇧🇴 Bolivia", "value": "90%", "note": "near-universal"}, {"name": "🇵🇭 Philippines", "value": "94%", "note": "near-universal"}, {"name": "🇧🇩 Bangladesh", "value": "99%", "note": "near-universal"}, {"name": "🇧🇷 Brazil", "value": "99%", "note": "near-universal"}, {"name": "🇮🇩 Indonesia", "value": "100%", "note": "near-universal"}]}, "civic": {"title": "Civic space (CIVICUS)", "long": "The CIVICUS Monitor rates how much room civil society has, from Open to Closed, with a 0–100 score, because a foreign NGO needs legal and political room to work. Crucial caveat: Tanzania itself is rated 'Repressed' (26) and Karimu operates there fine, so for Karimu's apolitical service model this is a gradient of friction, not a hard blocker. A true blocker would be a specific anti-foreign-NGO law (India's FCRA type), which none of these 15 have.", "src": "CIVICUS Monitor 2024.", "rows": [{"name": "🇬🇭 Ghana", "value": "60 · Obstructed", "note": "more open"}, {"name": "🇧🇷 Brazil", "value": "55 · Obstructed", "note": "more open"}, {"name": "🇨🇮 Côte d'Ivoire", "value": "53 · Obstructed", "note": "more open"}, {"name": "🇲🇼 Malawi", "value": "50 · Obstructed", "note": "more open"}, {"name": "🇧🇴 Bolivia", "value": "50 · Obstructed", "note": "more open"}, {"name": "🇰🇪 Kenya", "value": "49 · Obstructed", "note": "moderate friction"}, {"name": "🇸🇳 Senegal", "value": "47 · Obstructed", "note": "moderate friction"}, {"name": "🇮🇩 Indonesia", "value": "42 · Obstructed", "note": "moderate friction"}, {"name": "🇲🇬 Madagascar", "value": "40 · Repressed", "note": "moderate friction"}, {"name": "🇵🇭 Philippines", "value": "38 · Repressed", "note": "moderate friction"}, {"name": "🇭🇳 Honduras", "value": "38 · Repressed", "note": "moderate friction"}, {"name": "🇹🇬 Togo", "value": "29 · Repressed", "note": "high friction"}, {"name": "🇧🇩 Bangladesh", "value": "29 · Repressed", "note": "high friction"}, {"name": "🇺🇬 Uganda", "value": "28 · Repressed", "note": "high friction"}, {"name": "🇹🇿 Tanzania (ref.)", "value": "26 · Repressed", "note": "high friction"}]}, "cpigap": {"title": "CPI gap vs Tanzania", "long": "Transparency International's Corruption Perceptions Index scores countries 0–100 (higher = cleaner). We show the gap against Tanzania's 40: positive means more corruption than Karimu's current base, negative means cleaner. The v2 shortlist already excludes anything more than 20 points worse than Tanzania.", "src": "Transparency International CPI 2025.", "rows": [{"name": "🇸🇳 Senegal", "value": "-6", "note": "cleaner than TZA"}, {"name": "🇬🇭 Ghana", "value": "-3", "note": "cleaner than TZA"}, {"name": "🇨🇮 Côte d'Ivoire", "value": "-3", "note": "cleaner than TZA"}, {"name": "🇹🇿 Tanzania (ref.)", "value": "±0", "note": "cleaner than TZA"}, {"name": "🇧🇷 Brazil", "value": "+5", "note": "near TZA"}, {"name": "🇲🇼 Malawi", "value": "+6", "note": "near TZA"}, {"name": "🇮🇩 Indonesia", "value": "+6", "note": "near TZA"}, {"name": "🇹🇬 Togo", "value": "+8", "note": "near TZA"}, {"name": "🇵🇭 Philippines", "value": "+8", "note": "near TZA"}, {"name": "🇰🇪 Kenya", "value": "+10", "note": "near TZA"}, {"name": "🇧🇴 Bolivia", "value": "+12", "note": "weaker"}, {"name": "🇺🇬 Uganda", "value": "+15", "note": "weaker"}, {"name": "🇲🇬 Madagascar", "value": "+15", "note": "weaker"}, {"name": "🇧🇩 Bangladesh", "value": "+16", "note": "weakest in group"}, {"name": "🇭🇳 Honduras", "value": "+18", "note": "weakest in group"}]}, "replicability": {"title": "Replicability", "long": "A read of how directly the Manyara ward-by-ward playbook transfers: shared language (Swahili/English), similar rainfed smallholder agro-ecology, and regional proximity. Kenya and Uganda score highest (Swahili+English, neighboring East Africa, 'ward' is literally the unit); archipelago/delta Asia scores lowest.", "src": "Qualitative read (adjustable).", "rows": [{"name": "🇹🇿 Tanzania (ref.)", "value": "100", "note": "The playbook itself (reference = 100)."}, {"name": "🇺🇬 Uganda", "value": "95", "note": "English + village structure; Tanzania's neighbor."}, {"name": "🇰🇪 Kenya", "value": "93", "note": "Swahili + English; 'ward' is literally the unit."}, {"name": "🇲🇼 Malawi", "value": "92", "note": "Agrarian Southern Africa, almost identical model."}, {"name": "🇬🇭 Ghana", "value": "78", "note": "English, stable; northern-savanna poverty."}, {"name": "🇲🇬 Madagascar", "value": "70", "note": "Agrarian, but Malagasy/French + island logistics."}, {"name": "🇧🇷 Brazil", "value": "68", "note": "Portuguese (home), but very different agro + MIC."}, {"name": "🇸🇳 Senegal", "value": "62", "note": "Francophone West Africa; new playbook."}, {"name": "🇹🇬 Togo", "value": "58", "note": "Francophone, small; limited differentiation."}, {"name": "🇭🇳 Honduras", "value": "58", "note": "Spanish, Central American highlands."}, {"name": "🇨🇮 Côte d'Ivoire", "value": "58", "note": "Francophone West Africa; new playbook."}, {"name": "🇧🇴 Bolivia", "value": "52", "note": "Spanish + indigenous, high-altitude, dispersed."}, {"name": "🇵🇭 Philippines", "value": "46", "note": "English helps, but archipelago + different agro."}, {"name": "🇮🇩 Indonesia", "value": "36", "note": "New language, archipelago, strong state capacity."}, {"name": "🇧🇩 Bangladesh", "value": "34", "note": "New language, dense delta, very different model."}]}, "founder": {"title": "Founder presence", "long": "Where a founder or existing local network already lowers the cost of starting. Indonesia is the standout: a Karimu founder runs a personal project there, wants a local office and is registering a local NGO, which, with the two-continent goal, makes it the natural Asia anchor despite mid composite scores. Tanzania is home; Brazil is the foundation's base.", "src": "3 Nov 2026 strategy meeting.", "rows": [{"name": "🇹🇿 Tanzania (ref.)", "value": "100", "note": "Karimu's current operation (Manyara region)."}, {"name": "🇮🇩 Indonesia", "value": "92", "note": "A Karimu founder runs a personal project here, wants a local office, and is registering a local NGO."}, {"name": "🇧🇷 Brazil", "value": "65", "note": "Home country of the foundation and the founders' network."}, {"name": "🇺🇬 Uganda", "value": "0", "note": "no founder presence"}, {"name": "🇲🇼 Malawi", "value": "0", "note": "no founder presence"}, {"name": "🇬🇭 Ghana", "value": "0", "note": "no founder presence"}, {"name": "🇸🇳 Senegal", "value": "0", "note": "no founder presence"}, {"name": "🇹🇬 Togo", "value": "0", "note": "no founder presence"}, {"name": "🇧🇩 Bangladesh", "value": "0", "note": "no founder presence"}, {"name": "🇵🇭 Philippines", "value": "0", "note": "no founder presence"}, {"name": "🇧🇴 Bolivia", "value": "0", "note": "no founder presence"}, {"name": "🇭🇳 Honduras", "value": "0", "note": "no founder presence"}, {"name": "🇲🇬 Madagascar", "value": "0", "note": "no founder presence"}, {"name": "🇨🇮 Côte d'Ivoire", "value": "0", "note": "no founder presence"}, {"name": "🇰🇪 Kenya", "value": "0", "note": "no founder presence"}]}, "ruralpoor": {"title": "Rural poor", "long": "Number of people below the $3.00/day (2021 PPP) line living in rural areas. This is the addressable base for Karimu's rural, community-based model, and the size of each bubble on the chart.", "src": "Gemini/World Bank (captured 2026-10-10), $3.00/day 2021 PPP.", "rows": [{"name": "🇹🇿 Tanzania (ref.)", "value": "26.5M", "note": "48.0% nat'l rate · 81% rural"}, {"name": "🇲🇬 Madagascar", "value": "20.2M", "note": "81.5% nat'l rate · 80% rural"}, {"name": "🇺🇬 Uganda", "value": "19.5M", "note": "46.2% nat'l rate · 85% rural"}, {"name": "🇲🇼 Malawi", "value": "14.5M", "note": "76.5% nat'l rate · 88% rural"}, {"name": "🇰🇪 Kenya", "value": "14.2M", "note": "33.0% nat'l rate · 78% rural"}, {"name": "🇧🇩 Bangladesh", "value": "9.5M", "note": "7.3% nat'l rate · 75% rural"}, {"name": "🇮🇩 Indonesia", "value": "6.8M", "note": "3.7% nat'l rate · 66% rural"}, {"name": "🇧🇷 Brazil", "value": "4.1M", "note": "5.2% nat'l rate · 37% rural"}, {"name": "🇨🇮 Côte d'Ivoire", "value": "4M", "note": "19.8% nat'l rate · 68% rural"}, {"name": "🇸🇳 Senegal", "value": "3.8M", "note": "29.5% nat'l rate · 71% rural"}, {"name": "🇬🇭 Ghana", "value": "3.5M", "note": "16.5% nat'l rate · 62% rural"}, {"name": "🇵🇭 Philippines", "value": "2.9M", "note": "4.9% nat'l rate · 51% rural"}, {"name": "🇹🇬 Togo", "value": "2.7M", "note": "39.5% nat'l rate · 75% rural"}, {"name": "🇭🇳 Honduras", "value": "2.3M", "note": "35.5% nat'l rate · 60% rural"}, {"name": "🇧🇴 Bolivia", "value": "1.1M", "note": "14.5% nat'l rate · 61% rural"}]}, "community": {"title": "Target community (ward-equivalent)", "long": "Karimu saturates one community at a time: the smallest officially-recognized local unit that has its own leadership (a Tanzanian ward, a Malagasy fokontany, a Kenyan ward), typically 5,000–30,000 people. It is the unit Karimu partners with and the denominator for 'estimated target communities'.", "src": "Karimu target-unit concept + district/target-unit maps (verified 2026-11-04).", "rows": [{"name": "🇮🇩 Indonesia", "value": "18,217", "note": "514 districts (ADM2)"}, {"name": "🇧🇷 Brazil", "value": "14,900", "note": "5,570 districts (ADM2)"}, {"name": "🇧🇩 Bangladesh", "value": "11,077", "note": "64 districts (ADM2)"}, {"name": "🇵🇭 Philippines", "value": "7,479", "note": "84 districts (ADM2)"}, {"name": "🇹🇿 Tanzania (ref.)", "value": "3,989", "note": "169 districts (ADM2)"}, {"name": "🇰🇪 Kenya", "value": "3,770", "note": "290 districts (ADM2)"}, {"name": "🇺🇬 Uganda", "value": "3,146", "note": "135 districts (ADM2)"}, {"name": "🇲🇬 Madagascar", "value": "1,828", "note": "119 districts (ADM2)"}, {"name": "🇨🇮 Côte d'Ivoire", "value": "1,776", "note": "108 districts (ADM2)"}, {"name": "🇬🇭 Ghana", "value": "1,362", "note": "187 districts (ADM2)"}, {"name": "🇲🇼 Malawi", "value": "1,336", "note": "32 districts (ADM2)"}, {"name": "🇸🇳 Senegal", "value": "1,230", "note": "46 districts (ADM2)"}, {"name": "🇧🇴 Bolivia", "value": "896", "note": "112 districts (ADM2)"}, {"name": "🇭🇳 Honduras", "value": "700", "note": "298 districts (ADM2)"}, {"name": "🇹🇬 Togo", "value": "556", "note": "37 districts (ADM2)"}]}};
+function openMetric(k){var m=METRICS[k];if(!m)return;
+  document.getElementById('mTitle').textContent=m.title;
+  document.getElementById('mLong').textContent=m.long;
+  document.getElementById('mSrc').textContent='Source: '+m.src;
+  var b='';for(var i=0;i<m.rows.length;i++){var r=m.rows[i];
+    b+='<tr><td>'+r.name+'</td><td class="mv">'+r.value+'</td><td class="mn">'+r.note+'</td></tr>';}
+  document.getElementById('mBody').innerHTML=b;
+  document.getElementById('mov').classList.add('open');}
+function closeMetric(){document.getElementById('mov').classList.remove('open');}
+document.addEventListener('click',function(e){
+  var t=e.target.closest('[data-m]');if(t){openMetric(t.getAttribute('data-m'));return;}
+  if(e.target.id==='mov'){closeMetric();}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMetric();});
+</script>
+<div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇲🇼</div>
+    <div class="title">
+      <h1>Malawi</h1>
+      <div class="sub">MWI · Africa · #6 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip strong">Strong fit<small>Expansion priority in Africa.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">14.5<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">76.5<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">88<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">1,336</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">14.5 M <span class="tag good">very rural</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">76.5%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">40.9% <span class="tag good">severe need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">5.6% <span class="tag good">deep void</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">32 / 1,336</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">34 · +6 <span class="tag good">near TZA</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">50 · Obstructed <span class="tag good">more open</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">90/100 <span class="tag good">high appeal</span></td></tr>
+        
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>Chichewa + English.</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>28 districts → traditional authorities → villages.</p></div>
+      <div class="qblock"><h4>Context</h4><p>Landlocked, among the poorest countries in the world: 76.5% national poverty rate and 88% of the poor rural, the most rural-concentrated profile on the list. Maize/tobacco agriculture exposed to cyclones and drought. Already on Karimu's v1 active list.</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--strong)">Strong fit</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>89</b></span><span class="scpill c">Donor <b>90</b></span><span class="scpill f">Feasibility <b>55</b></span></span></p>
+    <p>Large rural base (14.5M), the highest rural concentration on the list (88%) and comparatively good governance (gap +6). A Southern-African agrarian village model almost identical to Tanzania's. The best appeal/feasibility balance of the group.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2019 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2021; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇺🇬</div>
+    <div class="title">
+      <h1>Uganda</h1>
+      <div class="sub">UGA · Africa · #4 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip strong">Strong fit<small>Expansion priority in Africa.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">19.5<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">46.2<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">85<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">3,146</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">19.5 M <span class="tag good">very rural</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">46.2%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">28.9% <span class="tag warn">moderate need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">35.9% <span class="tag good">deep void</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">135 / 3,146</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">25 · +15 <span class="tag warn">weaker than TZA</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">28 · Repressed <span class="tag crit">high friction</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">85/100 <span class="tag good">high appeal</span></td></tr>
+        
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>English (official) + Luganda + dozens of local languages.</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>135+ districts (splitting fast) → sub-counties → parishes → villages (LC1).</p></div>
+      <div class="qblock"><h4>Context</h4><p>Landlocked East Africa, agrarian, with a very young population. 85% of the poor are rural; the sharpest poverty is in the north (Karamoja, Acholi). Major refugee-hosting country. Village-by-village structure and agrarian profile very close to Tanzania's.</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--strong)">Strong fit</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>80</b></span><span class="scpill c">Donor <b>85</b></span><span class="scpill f">Feasibility <b>40</b></span></span></p>
+    <p>4th-largest rural-poor base in the world (19.5M), very high rurality and a Tanzanian neighbor: the strongest structural replicability of the ward model. Governance is the watch-point (gap +15, known corruption) but within the cut.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2016 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2021; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇲🇬</div>
+    <div class="title">
+      <h1>Madagascar</h1>
+      <div class="sub">MDG · Africa · #3 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip strong">Africa priority<small>Expansion priority in Africa.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">20.2<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">81.5<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">80<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">1,828</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">20.2 M <span class="tag good">very rural</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">81.5%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">39.8% <span class="tag good">severe need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">11% <span class="tag good">deep void</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">119 / 1,828</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">25 · +15 <span class="tag warn">weaker than TZA</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">40 · Repressed <span class="tag warn">moderate friction</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">90/100 <span class="tag good">high appeal</span></td></tr>
+        
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>Malagasy (national language) + French.</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>23 regions → 119 districts → communes → <i>fokontany</i> (smallest unit, with a local leader).</p></div>
+      <div class="qblock"><h4>Context</h4><p>Island; one of the poorest countries in the world, 81.5% national poverty rate and 80% of the poor rural. Rainfed agriculture (rice, cassava) on the highlands and the semi-arid south, exposed to cyclones and drought. Among the least electrified countries on earth. Civic space downgraded to 'Repressed' in 2025 after a crackdown on youth protests. Explicitly named by Karimu's leadership alongside Malawi and Uganda.</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--strong)">Africa priority</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>97</b></span><span class="scpill c">Donor <b>90</b></span><span class="scpill f">Feasibility <b>36</b></span></span></p>
+    <p>The highest strategic appeal on the list: 3rd-largest market (20.2M rural poor), extreme need (stunting ~40%, rural electricity ~11%) and very high poverty visibility for international donors. The counterweight is feasibility: weak governance (CPI 25, gap +15), repressed civic space and a Malagasy/French language zone outside the Swahili axis. The <i>fokontany</i> is a functional ward-equivalent with local leadership, which favors the model.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2021 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2022; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇰🇪</div>
+    <div class="title">
+      <h1>Kenya</h1>
+      <div class="sub">KEN · Africa · #7 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip promising">Promising<small>Solid candidate, with caveats.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">14.2<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">33.0<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">78<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">3,770</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">14.2 M <span class="tag good">mostly rural</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">33.0%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">18% <span class="tag warn">moderate need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">67.1% <span class="tag warn">partial gap</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">290 / 3,770</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">30 · +10 <span class="tag good">near TZA</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">49 · Obstructed <span class="tag warn">moderate friction</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">70/100 <span class="tag warn">medium appeal</span></td></tr>
+        
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>Swahili + English (both official).</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>47 counties → 290 sub-counties → <i>wards</i> → villages.</p></div>
+      <div class="qblock"><h4>Context</h4><p>East Africa, Tanzania's neighbor, agrarian with pockets of acute poverty in the arid north (Turkana, Mandera) and the rural west. More diversified economy (Nairobi is a regional hub), lower-middle income. Mid governance (CPI 30, gap +10), 'Obstructed' civic space (49).</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--promising)">Promising</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>52</b></span><span class="scpill c">Donor <b>70</b></span><span class="scpill f">Feasibility <b>51</b></span></span></p>
+    <p>The highest replicability of the playbook alongside Uganda: Swahili + English identical to Tanzania, the 'ward' is literally the target unit, same regional bloc. Large base (14.2M rural poor). Slightly lower donor appeal than the poorest agrarian Africa (more visible economy). Karimu's leadership flagged it as a 'lots of people' option; it is the natural East-African candidate beyond Uganda.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2022 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2024; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇬🇭</div>
+    <div class="title">
+      <h1>Ghana</h1>
+      <div class="sub">GHA · Africa · #17 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip promising">Promising<small>Solid candidate, with caveats.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">3.5<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">16.5<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">62<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">1,362</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">3.5 M <span class="tag good">mostly rural</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">16.5%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">17.5% <span class="tag">lower need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">77.8% <span class="tag warn">partial gap</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">187 / 1,362</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">43 · -3 <span class="tag good">cleaner than TZA</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">60 · Obstructed <span class="tag good">more open</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">60/100 <span class="tag warn">medium appeal</span></td></tr>
+        
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>English (official) + Akan/Twi + local languages.</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>16 regions → 261 districts → communities.</p></div>
+      <div class="qblock"><h4>Context</h4><p>West Africa, stable democracy, English-speaking, lower-middle income. Poverty strongly concentrated in the northern savanna (Northern, Upper East/West). Comparatively good governance (CPI 43, gap −3).</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--promising)">Promising</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>27</b></span><span class="scpill c">Donor <b>60</b></span><span class="scpill f">Feasibility <b>63</b></span></span></p>
+    <p>Moderate base (3.5M), English (low operating friction), good governance and stability: the lowest-friction West-African entry. Poverty concentrated in the north = a clear target. Lower appeal because basic rural infrastructure is already further along.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2017 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2023; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇸🇳</div>
+    <div class="title">
+      <h1>Senegal</h1>
+      <div class="sub">SEN · Africa · #16 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip promising">Promising<small>Solid candidate, with caveats.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">3.8<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">29.5<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">71<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">1,230</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">3.8 M <span class="tag good">mostly rural</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">29.5%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">17.9% <span class="tag">lower need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">43.4% <span class="tag warn">partial gap</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">46 / 1,230</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">46 · -6 <span class="tag good">cleaner than TZA</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">47 · Obstructed <span class="tag warn">moderate friction</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">68/100 <span class="tag warn">medium appeal</span></td></tr>
+        
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>French (official) + Wolof (lingua franca).</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>14 regions → 46 departments → communes.</p></div>
+      <div class="qblock"><h4>Context</h4><p>West Africa, Sahel edge, a stable democracy with comparatively low corruption: CPI 46, cleaner than Tanzania (gap −6), the best governance on the list. Poverty concentrates in the rural south and east (Kolda, Tambacounda). Francophone zone, distinct from Karimu's current operation.</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--promising)">Promising</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>39</b></span><span class="scpill c">Donor <b>68</b></span><span class="scpill f">Feasibility <b>58</b></span></span></p>
+    <p>Moderate base (3.8M) with the best governance of the group and political stability, a natural anchor for a West-African entry. It does require a new (francophone, West-African) operating playbook.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2019 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2021; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇨🇮</div>
+    <div class="title">
+      <h1>Côte d'Ivoire</h1>
+      <div class="sub">CIV · Africa · #15 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip watch">Watch / West Africa<small>Only worth a very focused entry.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">4<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">19.8<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">68<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">1,776</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">4 M <span class="tag good">mostly rural</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">19.8%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">21.6% <span class="tag warn">moderate need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">47.7% <span class="tag warn">partial gap</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">108 / 1,776</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">43 · -3 <span class="tag good">cleaner than TZA</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">53 · Obstructed <span class="tag good">more open</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">58/100 <span class="tag warn">medium appeal</span></td></tr>
+        
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>French (official) + Dioula and local languages.</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>14 autonomous districts / 31 regions → 108 departments → sub-prefectures → villages.</p></div>
+      <div class="qblock"><h4>Context</h4><p>West Africa, a fast-growing economy driven by Abidjan and cocoa. Poverty concentrated in the rural north; a nationally low poverty rate (19.8%) by the list's standards. Comparatively good governance (CPI 43, gap −3) and 'Obstructed' civic space (53), among the better of the group.</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--watch)">Watch / West Africa</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>40</b></span><span class="scpill c">Donor <b>58</b></span><span class="scpill f">Feasibility <b>55</b></span></span></p>
+    <p>A West-African option explicitly named by Karimu's leadership. Moderate base (4.0M), good governance and stability, but fast economic growth and a lower poverty rate reduce donor appeal versus Malawi/Madagascar. Francophone, like Senegal and Togo. Useful as a West-African comparator, not as the spearhead.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2016 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2024; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇹🇬</div>
+    <div class="title">
+      <h1>Togo</h1>
+      <div class="sub">TGO · Africa · #20 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip watch">Watch / West Africa<small>Only worth a very focused entry.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">2.7<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">39.5<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">75<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">556</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">2.7 M <span class="tag good">mostly rural</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">39.5%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">23.8% <span class="tag warn">moderate need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">24.7% <span class="tag good">deep void</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">37 / 556</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">32 · +8 <span class="tag good">near TZA</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">29 · Repressed <span class="tag crit">high friction</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">72/100 <span class="tag warn">medium appeal</span></td></tr>
+        
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>French + Ewe/Kabiye.</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>5 regions → 39 prefectures → cantons → villages.</p></div>
+      <div class="qblock"><h4>Context</h4><p>Small West African country, francophone, with a poorer agrarian north. Small absolute base (2.7M).</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--watch)">Watch / West Africa</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>47</b></span><span class="scpill c">Donor <b>72</b></span><span class="scpill f">Feasibility <b>37</b></span></span></p>
+    <p>Small, francophone base with little differentiation from Ghana/Senegal. A secondary West-African option, useful mainly to complement a regional anchor.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2017 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2021; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇮🇩</div>
+    <div class="title">
+      <h1>Indonesia</h1>
+      <div class="sub">IDN · Asia · #11 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip promising">Asia anchor (founder)<small>Solid candidate, with caveats.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">6.8<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">3.7<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">66<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">18,217</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">6.8 M <span class="tag good">mostly rural</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">3.7%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">30.8% <span class="tag good">severe need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">100% <span class="tag">near-universal</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">514 / 18,217</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">34 · +6 <span class="tag good">near TZA</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">42 · Obstructed <span class="tag warn">moderate friction</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">48/100 <span class="tag crit">low appeal</span></td></tr>
+        <tr><td class="k">Founder presence</td><td class="v">92/100 <span class="tag good">★ local network</span></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>Bahasa Indonesia (national lingua franca) + 700+ local languages.</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>38 provinces → 514 regencies/cities (<i>kabupaten/kota</i>) → districts (<i>kecamatan</i>) → villages (<i>desa</i>).</p></div>
+      <div class="qblock"><h4>Context</h4><p>A 17,000-island archipelago, so geographic dispersion is the core operational challenge. Poverty concentrates in the east (Papua, East Nusa Tenggara, Maluku) and rural Java pockets. Middle-income, with strong state social programs and a dense NGO ecosystem.</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--promising)">Asia anchor (founder)</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>36</b></span><span class="scpill c">Donor <b>48</b></span><span class="scpill f">Feasibility <b>50</b></span></span></p>
+    <p>The largest absolute rural-poor base in Asia on the list (6.8M) and governance close to Tanzania, but island dispersion and existing state capacity lower marginal impact per community. Its real pull is strategic: a founder's personal presence and the two-continent rule make it the natural Asia anchor despite mid composite scores.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2018 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2022; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇵🇭</div>
+    <div class="title">
+      <h1>Philippines</h1>
+      <div class="sub">PHL · Asia · #19 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip watch">Watch / focused<small>Only worth a very focused entry.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">2.9<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">4.9<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">51<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">7,479</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">2.9 M <span class="tag warn">mixed</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">4.9%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">30.3% <span class="tag good">severe need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">94% <span class="tag">near-universal</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">84 / 7,479</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">32 · +8 <span class="tag good">near TZA</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">38 · Repressed <span class="tag warn">moderate friction</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">46/100 <span class="tag crit">low appeal</span></td></tr>
+        
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>Filipino/Tagalog + English (widely spoken) + regional languages.</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>17 regions → 82 provinces → ~1,600 municipalities → <i>barangays</i>.</p></div>
+      <div class="qblock"><h4>Context</h4><p>Archipelago; rural poverty concentrates in Mindanao (BARMM) and the Visayas; typhoon-prone. English is widespread and diaspora remittances matter. Localized insecurity in parts of Mindanao calls for caution.</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--watch)">Watch / focused</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>30</b></span><span class="scpill c">Donor <b>46</b></span><span class="scpill f">Feasibility <b>36</b></span></span></p>
+    <p>Smaller, dispersed base (2.9M) with localized conflict in Mindanao. English lowers operating friction, but the model would need heavy regional focus.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2018 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2022; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇧🇩</div>
+    <div class="title">
+      <h1>Bangladesh</h1>
+      <div class="sub">BGD · Asia · #10 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip watch">Watch / focused<small>Only worth a very focused entry.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">9.5<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">7.3<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">75<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">11,077</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">9.5 M <span class="tag good">mostly rural</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">7.3%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">28% <span class="tag warn">moderate need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">99% <span class="tag">near-universal</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">64 / 11,077</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">24 · +16 <span class="tag crit">weakest in group</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">29 · Repressed <span class="tag crit">high friction</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">40/100 <span class="tag crit">low appeal</span></td></tr>
+        
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>Bangla (Bengali).</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>8 divisions → 64 districts → ~495 <i>upazilas</i> → unions → villages.</p></div>
+      <div class="qblock"><h4>Context</h4><p>A flat delta and the most densely populated large country on earth. Rural poverty concentrates in the north (Rangpur), the <i>haor</i> wetlands and the climate-exposed coastal belt. Home of BRAC and Grameen, the most NGO-saturated ecosystem on the planet.</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--watch)">Watch / focused</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>40</b></span><span class="scpill c">Donor <b>40</b></span><span class="scpill f">Feasibility <b>21</b></span></span></p>
+    <p>Second-largest rural base in Asia on the list (9.5M), but extreme NGO saturation makes differentiation hard and climate exposure is high. Governance weaker than Tanzania (gap +16, still within the cut).</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2019 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2022; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇧🇴</div>
+    <div class="title">
+      <h1>Bolivia</h1>
+      <div class="sub">BOL · Latin America · #27 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip watch">Watch / focused<small>Only worth a very focused entry.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">1.1<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">14.5<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">61<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">896</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">1.1 M <span class="tag good">mostly rural</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">14.5%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">16.1% <span class="tag">lower need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">90% <span class="tag">near-universal</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">112 / 896</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">28 · +12 <span class="tag warn">weaker than TZA</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">50 · Obstructed <span class="tag good">more open</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">50/100 <span class="tag crit">low appeal</span></td></tr>
+        
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>Spanish + Quechua + Aymara.</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>9 departments → provinces → 300+ municipalities.</p></div>
+      <div class="qblock"><h4>Context</h4><p>Andes + Amazon lowlands; rural indigenous poverty on the altiplano. Landlocked. Small base (1.1M).</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--watch)">Watch / focused</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>17</b></span><span class="scpill c">Donor <b>50</b></span><span class="scpill f">Feasibility <b>37</b></span></span></p>
+    <p>Small base, high-altitude dispersed indigenous communities, Spanish + indigenous languages. Mid governance (gap +12). Entry would need a heavily adapted model.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2016 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2022; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇭🇳</div>
+    <div class="title">
+      <h1>Honduras</h1>
+      <div class="sub">HND · Latin America · #22 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip caution">Caution<small>Context risks weigh against it.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">2.3<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">35.5<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">60<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">700</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">2.3 M <span class="tag good">mostly rural</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">35.5%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">22.6% <span class="tag warn">moderate need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">88% <span class="tag">near-universal</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">298 / 700</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">22 · +18 <span class="tag crit">weakest in group</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">38 · Repressed <span class="tag warn">moderate friction</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">50/100 <span class="tag crit">low appeal</span></td></tr>
+        
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>Spanish.</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>18 departments → 298 municipalities.</p></div>
+      <div class="qblock"><h4>Context</h4><p>Central America; rural poverty in the western highlands (Lempira, Intibucá, the 'dry corridor'), a coffee economy and climate vulnerability. Significant violence and migration pressures. Weakest governance on the list (gap +18, still within the cut).</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--caution)">Caution</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>25</b></span><span class="scpill c">Donor <b>50</b></span><span class="scpill f">Feasibility <b>29</b></span></span></p>
+    <p>Moderate base (2.3M) with concentrated, targetable highland rural poverty, but the group's weakest governance and the security/migration context weigh against it.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2012 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2022; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇧🇷</div>
+    <div class="title">
+      <h1>Brazil</h1>
+      <div class="sub">BRA · Latin America · #14 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip watch">Weak for global fundraising<small>Only worth a very focused entry.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">4.1<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">5.2<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">37<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">14,900</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">4.1 M <span class="tag warn">mixed</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">5.2%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">7% <span class="tag">lower need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">99% <span class="tag">near-universal</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">5,570 / 14,900</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">35 · +5 <span class="tag good">near TZA</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">55 · Obstructed <span class="tag good">more open</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">22/100 <span class="tag crit">low appeal</span></td></tr>
+        <tr><td class="k">Founder presence</td><td class="v">65/100 <span class="tag good">★ local network</span></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>Portuguese.</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>26 states + Federal District → 5,570 municipalities.</p></div>
+      <div class="qblock"><h4>Context</h4><p>Upper-middle income; rural poverty concentrated in the semi-arid Northeast (<i>sertão</i>) and rural Amazon pockets. Strong state safety net (Bolsa Família). Portuguese is Karimu's home language and Brazil is the foundation's base.</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--watch)">Weak for global fundraising</b>
+      <span class="scoreline"><span class="scpill a">Impact <b>14</b></span><span class="scpill c">Donor <b>22</b></span><span class="scpill f">Feasibility <b>60</b></span></span></p>
+    <p>The bottleneck is not impact, it is fundraising: Karimu's leadership judges that a global foundation is unlikely to fund Brazil, a middle-income country with its own resources 'if well managed'. So donor appeal is the lowest on the list despite 4.1M rural poor. Its real edge is being the home base: language and the founders' network. A domestic pilot (local fundraising), not a showcase for a large international foundation.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2019 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2022; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div><div class="page">
+  <p class="eyebrow">Karimu · Addressable-market study · Country one-pager</p>
+  <div class="head">
+    <div class="flag">🇹🇿</div>
+    <div class="title">
+      <h1>Tanzania</h1>
+      <div class="sub">TZA · Africa · #2 by rural poor (v2 list)</div>
+    </div>
+    <div class="chip core">Current core<small>Current operation, the comparison ruler.</small></div>
+  </div>
+
+  <div class="heroes">
+    <div class="hero"><div class="n">26.5<small> M</small></div><div class="c">rural poor (&lt;$3/day, 2021 PPP)</div></div>
+    <div class="hero"><div class="n">48.0<small>%</small></div><div class="c">national poverty rate</div></div>
+    <div class="hero"><div class="n">81<small>%</small></div><div class="c">of the poor live in rural areas</div></div>
+    <div class="hero"><div class="n">3,989</div><div class="c">estimated target communities (ward-equiv.)</div></div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <p class="sec">Need, market &amp; governance</p>
+      <table>
+        <tr><td class="k">Rural poor</td><td class="v">26.5 M <span class="tag good">very rural</span></td></tr>
+        <tr><td class="k">National poverty rate</td><td class="v">48.0%</td></tr>
+        <tr><td class="k">Child stunting (&lt;5y)</td><td class="v">31.8% <span class="tag good">severe need</span></td></tr>
+        <tr><td class="k">Rural electricity</td><td class="v">36% <span class="tag good">deep void</span></td></tr>
+        <tr><td class="k">Districts / target comm.</td><td class="v">169 / 3,989</td></tr>
+        <tr><td class="k">CPI 2025 · gap vs TZA</td><td class="v">40 · ±0 <span class="tag good">cleaner than TZA</span></td></tr>
+        <tr><td class="k">Civic space (CIVICUS)</td><td class="v">26 · Repressed <span class="tag crit">high friction</span></td></tr>
+        <tr><td class="k">Donor appeal</td><td class="v">82/100 <span class="tag good">high appeal</span></td></tr>
+        <tr><td class="k">Founder presence</td><td class="v">100/100 <span class="tag good">★ local network</span></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <p class="sec">Operational context</p>
+      <div class="qblock"><h4>Language</h4><p>Swahili + English.</p></div>
+      <div class="qblock"><h4>Administrative structure</h4><p>31 regions → 169 districts → 4,102 <i>wards</i> → villages.</p></div>
+      <div class="qblock"><h4>Context</h4><p>Where Karimu already operates (Manyara region, 3 wards). The reference for the ward-by-ward model and the baseline for all governance comparisons (CPI 40 = baseline, gap 0).</p></div>
+    </div>
+  </div>
+
+  <div class="card fit">
+    <p class="sec">Fit with the Karimu model — <b style="color:var(--core)">Current core</b>
+      <span class="scoreline"><span class="scpill ref">reference (core)</span></span></p>
+    <p>Core country. The only one in the base with a real exhaustive ward enumeration (4,102). It serves as the ruler: scale, rurality (81% of the poor) and administrative structure against which every candidate is measured.</p>
+  </div>
+
+  <div class="foot">
+    <b>Sources:</b> rural/total poor, rate and rural share — Gemini/World Bank (captured 2026-10-10), $3/day line (2021 PPP);
+    CPI 2025 — Transparency International (2026-10-13); districts/target communities — district/target-unit-map-v2 (verified 2026-11-04);
+    <b>stunting</b> &lt;5y — UNICEF/WHO/WB Joint Malnutrition Estimates, latest national survey (2018 here; year varies by country);
+    <b>rural electricity</b> — World Bank EG.ELC.ACCS.RU.ZS (~2022; Asia/Latam anchored to WB 2022 regional averages);
+    <b>civic space</b> — CIVICUS Monitor 2024 (0–100 + label).
+    CPI gap = Tanzania's CPI (40) minus the country's (positive = weaker governance). Note: Tanzania itself is "Repressed" (26) and Karimu operates, so civic space here is friction, not a veto.
+    &nbsp;·&nbsp; <b>Donor appeal</b> and <b>founder presence</b> read the lens set at the 3 Nov strategy meeting (Karimu's leadership prioritizes poverty visibility for European foundations); donor appeal, replicability, founder presence and the three composite indices (<b>Impact</b>, <b>Donor</b>, <b>Feasibility</b>) are decision-support reads with adjustable weights, not external source data.
+    &nbsp;·&nbsp; Generated 2026-11-12.
+  </div>
+</div></body></html>
